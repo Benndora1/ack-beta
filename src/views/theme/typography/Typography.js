@@ -12,6 +12,9 @@ import { DocsLink } from 'src/reusable'
 
 import usersData from '../../users/UsersData'
 
+
+//hospitals
+
 const getBadge = status => {
   switch (status) {
     case 'Active': return 'success'
@@ -21,8 +24,8 @@ const getBadge = status => {
     default: return 'primary'
   }
 }
-const fields = ['name','registered', 'role', 'status']
-
+//const fields = ['name','registered', 'role', 'status']
+const fields = ['Hospital Name','Location','Aliements','Price']
 const Tables = () => {
   return (
     <>
