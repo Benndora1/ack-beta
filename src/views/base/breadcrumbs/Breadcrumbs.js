@@ -25,7 +25,7 @@ const getBadge = status => {
   }
 }
 //const fields = ['name','registered', 'role', 'status']
-const fields = ['Fname','Lname','DoB','IdNo','Email','phoneNo','EmployemnentNo','CardNo','Role','Insuarance Plan','Maritual Status']
+const fields = ['Role','Insuarance Plan']
 const Tables = () => {
   return (
     <>
