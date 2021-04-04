@@ -27,11 +27,10 @@ const Table = () => {
                   <th>Member</th>
                   <th>DoB</th>
                   <th>IdNo</th>
-                  <th>Email</th>
                   <th>Phone No</th>
-                  <th>Employment No</th>
+                  <th>Payroll No</th>
                   <th>Card No</th>
-                  <th>Role</th>
+                  <th>Rank</th>
                   <th>Insuarance Plan</th>
                   <th>Spouce</th>
                   <th>Action</th>

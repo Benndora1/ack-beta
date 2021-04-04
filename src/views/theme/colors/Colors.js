@@ -53,18 +53,17 @@ const Table = () => {
               </CModalFooter>
             </CModal>
 
-              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
+            <table className="table table-hover table-outline mb-0 d-none d-sm-table">
               <thead className="thead-light">
                 <tr>
                   <th className="text-center"><CIcon name="cil-people" /></th>
                   <th>Member</th>
                   <th>DoB</th>
                   <th>IdNo</th>
-                  <th>Email</th>
                   <th>Phone No</th>
-                  <th>Employment No</th>
+                  <th>Payroll No</th>
                   <th>Card No</th>
-                  <th>Role</th>
+                  <th>Rank</th>
                   <th>Insuarance Plan</th>
                   <th>Spouce</th>
                   <th>Action</th>
