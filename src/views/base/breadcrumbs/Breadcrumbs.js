@@ -26,7 +26,7 @@ const Table = () => {
 
   return (
     <>
-   <CButton color="primary"
+   {/* <CButton color="primary"
               onClick={() => setModal(!modal)} 
               className="mr-1"
             >Add Role</CButton>
@@ -51,61 +51,95 @@ const Table = () => {
                   onClick={() => setModal(false)}
                 >Cancel</CButton>
               </CModalFooter>
-            </CModal>
+            </CModal> */}
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
               <thead className="thead-light">
                 <tr>
-                  <th className="text-center"><CIcon name="cil-people" /></th>
-                  <th>Role</th>
-                  <th>Insuarance Plan</th>
-                  {/* <th>IdNo</th> */}
-                  {/* <th>Email</th>
-                  <th>Phone No</th>
-                  <th>Employment No</th>
-                  <th>Card No</th>
-                  <th>Role</th>
-                  <th>Insuarance Plan</th>
-                  <th>Spouce</th> */}
-                  <th>Action</th>
+                  {/* <th className="text-center"><CIcon name="cil-people" /></th> */}
+                  <th>Rank</th>
+                  <th>Out-Patient Limit</th>
+                  <th>In-Patient Limit</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="text-center">
-                    {/* <div className="c-avatar">
-                      <img src={'avatars/1.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
-                      <span className="c-avatar-status bg-success"></span>
-                    </div> */}
+                  <td>
+                    Bishop
                   </td>
                   <td>
-                    {/* <div>Yiorgos Avraamu</div>
-                    <div className="small text-muted">
-                      <span>New</span> | Registered: Jan 1, 2015
-                    </div> */}
-                  </td>
-                  {/* <td className="text-center">
-                    <CIcon height={25} name="cif-us" title="us" id="us" />
-                  </td> */}
-                  <td>
-                    {/* <div className="clearfix">
-                      <div className="float-left">
-                        <strong>50%</strong>
-                      </div>
-                      <div className="float-right">
-                        <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
-                      </div>
-                    </div>
-                    <CProgress className="progress-xs" color="success" value="50" />
-                  </td>
-                  <td className="text-center">
-                    <CIcon height={25} name="cib-cc-mastercard" /> */}
+                   kSH 100,000
                   </td>
                   <td>
-                    {/* <div className="small text-muted">Last login</div>
-                    <strong>10 sec ago</strong> */}
+                   kSH 700,000
                   </td>
-                </tr>
+                  </tr>
+                  <tr>
+                    <td>
+                    Archdeacons
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 500,000
+                      </td>
+                      </tr>   
+                      <tr>
+                    <td>
+                    Area Deans
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 350,000
+                      </td>
+                      </tr>   
+                      <tr>
+                    <td>
+                    Finance Manager
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 350,000
+                      </td>
+                      </tr>   
+                      <tr>
+                    <td>
+                    Clergy
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 300,000
+                      </td>
+                      </tr>   
+                      <tr>
+                    <td>
+                    Staff
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 300,000
+                      </td>
+                      </tr>   
+                      <tr>
+                    <td>
+                    Evangelists
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 250,000
+                      </td>
+                      </tr>   
               </tbody>
             </table>
             </>
