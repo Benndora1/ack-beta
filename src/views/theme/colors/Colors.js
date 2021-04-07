@@ -92,10 +92,10 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Phone Number</CLabel>
+                      <CLabel htmlFor="phone-number">Payroll Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="0700000000"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="Payroll-number"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -178,37 +178,7 @@ const Table = () => {
               <tbody>
                 <tr>
                   <td className="text-center">
-                    {/* <div className="c-avatar">
-                      <img src={'avatars/1.jpg'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
-                      <span className="c-avatar-status bg-success"></span>
-                    </div> */}
-                  </td>
-                  <td>
-                    {/* <div>Yiorgos Avraamu</div>
-                    <div className="small text-muted">
-                      <span>New</span> | Registered: Jan 1, 2015
-                    </div> */}
-                  </td>
-                  {/* <td className="text-center">
-                    <CIcon height={25} name="cif-us" title="us" id="us" />
-                  </td> */}
-                  <td>
-                    {/* <div className="clearfix">
-                      <div className="float-left">
-                        <strong>50%</strong>
-                      </div>
-                      <div className="float-right">
-                        <small className="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
-                      </div>
-                    </div>
-                    <CProgress className="progress-xs" color="success" value="50" />
-                  </td>
-                  <td className="text-center">
-                    <CIcon height={25} name="cib-cc-mastercard" /> */}
-                  </td>
-                  <td>
-                    {/* <div className="small text-muted">Last login</div>
-                    <strong>10 sec ago</strong> */}
+                  {/* fetch data from the db*/}
                   </td>
                 </tr>
               </tbody>
