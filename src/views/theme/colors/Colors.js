@@ -51,9 +51,7 @@ const Table = () => {
               </CModalHeader>
               <CModalBody>
               <CCard>
-            {/* <CCardHeader>
-              Member Details
-            </CCardHeader> */}
+           
             <CCardBody>
               <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
                 
