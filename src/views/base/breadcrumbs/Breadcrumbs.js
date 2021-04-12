@@ -1,281 +1,150 @@
-// import React from 'react'
-// import {
-//   CBreadcrumb,
-//   CBreadcrumbItem,
-//   CBreadcrumbRouter,
-//   CCard,
-//   CCardBody,
-//   CCardHeader,
-//   CLink,
-//   CCol,
-//   CRow
-// } from '@coreui/react'
-// import { DocsLink } from 'src/reusable'
-// import routes from '../../../routes'
-
-// const Breadcrumbs = () => {
-//   return (
-//     <CRow>
-//       <CCol xs="12">
-//         <CCard>
-//           <CCardHeader>
-//             Bootstrap Breadcrumb
-//             <DocsLink name="CBreadcrumb"/>
-//           </CCardHeader>
-//           <CCardBody>
-//             <h6>CBreadcrumbRouter wrapper component</h6>
-//             <CBreadcrumbRouter routes={routes}/>
-//             <h6>Manual</h6>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>Library</CBreadcrumbItem>
-//             </CBreadcrumb>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Library</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>Data</CBreadcrumbItem>
-//             </CBreadcrumb>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Library</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Data</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>
-//                 <span>Bootstrap</span>
-//               </CBreadcrumbItem>
-//             </CBreadcrumb>
-//           </CCardBody>
-//         </CCard>
-//       </CCol>
-//     </CRow>
-//   )
-// }
-
-// export default Breadcrumbs
-
-import React from 'react'
+import React, { useState } from 'react'
 import {
-  CBadge,
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
-  CDataTable,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
   CRow
 } from '@coreui/react'
+
+import CIcon from '@coreui/icons-react'
 import { DocsLink } from 'src/reusable'
 
-import usersData from '../../users/UsersData'
 
-const getBadge = status => {
-  switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
-    default: return 'primary'
-  }
-}
-const fields = ['name','registered', 'role', 'status']
 
-const Tables = () => {
+
+const Table = () => { 
+
+  const [modal, setModal] = useState(true)
+  const [small, setSmall] = useState(false)
+
   return (
     <>
-      <CRow>
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Simple Table
-              <DocsLink name="CModal"/>
-            </CCardHeader> */}
-            {/* <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+   {/* <CButton color="primary"
+              onClick={() => setModal(!modal)} 
+              className="mr-1"
+            >Add Role</CButton>
+            <CModal 
+              show={modal} 
+              onClose={setModal}
+            >
+              <CModalHeader closeButton>
+                <CModalTitle>Modal title</CModalTitle>
+              </CModalHeader>
+              <CModalBody>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+              </CModalBody>
+              <CModalFooter>
+                <CButton color="primary">Do Something</CButton>{' '}
+                <CButton 
+                  color="secondary" 
+                  onClick={() => setModal(false)}
+                >Cancel</CButton>
+              </CModalFooter>
+            </CModal> */}
+
+              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
+              <thead className="thead-light">
+                <tr>
+                  {/* <th className="text-center"><CIcon name="cil-people" /></th> */}
+                  <th>Rank</th>
+                  <th>Out-Patient Limit</th>
+                  <th>In-Patient Limit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Bishop
+                  </td>
+                  <td>
+                   kSH 100,000
+                  </td>
+                  <td>
+                   kSH 700,000
+                  </td>
+                  </tr>
+                  <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Striped Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              striped
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+                    Archdeacons
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 500,000
+                      </td>
+                      </tr>   
+                      <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-      </CRow>
-
-      <CRow>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Condensed Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              size="sm"
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+                    Area Deans
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 350,000
+                      </td>
+                      </tr>   
+                      <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Bordered Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              bordered
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+                    Finance Manager
+                      </td>
+                      <td>
+                        Ksh 70,000
+                      </td>
+                      <td>
+                      Ksh 350,000
+                      </td>
+                      </tr>   
+                      <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-      </CRow>
-
-      <CRow>
-        <CCol>
-          <CCard>
-            <CCardHeader>
-              Combined All Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              hover
-              striped
-              bordered
-              size="sm"
-              itemsPerPage={10}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+                    Clergy
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 300,000
+                      </td>
+                      </tr>   
+                      <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-              }}
-            />
-            </CCardBody>
-          </CCard>
-        </CCol>
-      </CRow>
-        <CRow>
-        <CCol>
-          <CCard>
-            {/* <CCardHeader>
-              Combined All dark Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              dark
-              hover
-              striped
-              bordered
-              size="sm"
-              itemsPerPage={10}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
+                    Staff
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 300,000
+                      </td>
+                      </tr>   
+                      <tr>
                     <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-      </CRow>
-    </>
-  )
-}
+                    Evangelists
+                      </td>
+                      <td>
+                        Ksh 50,000
+                      </td>
+                      <td>
+                      Ksh 250,000
+                      </td>
+                      </tr>   
+              </tbody>
+            </table>
+            </>
+            )
+};
 
-export default Tables
 
+export default Table

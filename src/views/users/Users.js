@@ -49,8 +49,9 @@ const Users = () => {
           <CDataTable
             items={usersData}
             fields={[
-              { key: 'name', _classes: 'font-weight-bold' },
-              'registered', 'role', 'status'
+              { key: 'Fname', _classes: 'font-weight-bold' },
+              'Lname','DoB','IdNo','Email',
+              'phoneNo','EmployemnentNo','CardNo','Role','Insuarance Plan','Maritual Status'
             ]}
             hover
             striped

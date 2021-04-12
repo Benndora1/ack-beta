@@ -1,281 +1,189 @@
-// import React from 'react'
-// import {
-//   CBreadcrumb,
-//   CBreadcrumbItem,
-//   CBreadcrumbRouter,
-//   CCard,
-//   CCardBody,
-//   CCardHeader,
-//   CLink,
-//   CCol,
-//   CRow
-// } from '@coreui/react'
-// import { DocsLink } from 'src/reusable'
-// import routes from '../../../routes'
-
-// const Breadcrumbs = () => {
-//   return (
-//     <CRow>
-//       <CCol xs="12">
-//         <CCard>
-//           <CCardHeader>
-//             Bootstrap Breadcrumb
-//             <DocsLink name="CBreadcrumb"/>
-//           </CCardHeader>
-//           <CCardBody>
-//             <h6>CBreadcrumbRouter wrapper component</h6>
-//             <CBreadcrumbRouter routes={routes}/>
-//             <h6>Manual</h6>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>Library</CBreadcrumbItem>
-//             </CBreadcrumb>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Library</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>Data</CBreadcrumbItem>
-//             </CBreadcrumb>
-//             <CBreadcrumb>
-//               <CBreadcrumbItem>
-//                 <CLink>Home</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Library</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem>
-//                 <CLink>Data</CLink>
-//               </CBreadcrumbItem>
-//               <CBreadcrumbItem active>
-//                 <span>Bootstrap</span>
-//               </CBreadcrumbItem>
-//             </CBreadcrumb>
-//           </CCardBody>
-//         </CCard>
-//       </CCol>
-//     </CRow>
-//   )
-// }
-
-// export default Breadcrumbs
-
-import React from 'react'
+import React, { useState } from 'react'
 import {
-  CBadge,
+  CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
-  CDataTable,
+  CSwitch,
+  CInputCheckbox,
+  CInputRadio,
+  CInputFile,
+  CCardFooter,
+  CSelect,
+  CTextarea,
+  CFormText,
+  CForm,
+  CLabel,
+  CInput,
+  CFormGroup,
+  CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle,
   CRow
 } from '@coreui/react'
+
+import CIcon from '@coreui/icons-react'
 import { DocsLink } from 'src/reusable'
 
-import usersData from '../../users/UsersData'
 
-const getBadge = status => {
-  switch (status) {
-    case 'Active': return 'success'
-    case 'Inactive': return 'secondary'
-    case 'Pending': return 'warning'
-    case 'Banned': return 'danger'
-    default: return 'primary'
-  }
-}
-const fields = ['name','registered', 'role', 'status']
+//members
 
-const Tables = () => {
+const Table = () => { 
+
+  const [modal, setModal] = useState(true)
+  const [small, setSmall] = useState(false)
+
   return (
     <>
-      <CRow>
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Simple Table
-              <DocsLink name="CModal"/>
-            </CCardHeader> */}
-            {/* <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Striped Table
-            </CCardHeader>
+   <CButton color="primary"
+              onClick={() => setModal(!modal)} 
+              className="mr-1"
+            >Add Member</CButton>
+            <CModal 
+              show={modal} 
+              onClose={setModal}
+            >
+              <CModalHeader closeButton>
+                <CModalTitle>Member Details</CModalTitle>
+              </CModalHeader>
+              <CModalBody>
+              <CCard>
+           
             <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              striped
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
+              <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text-input">First Name</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="First Name" />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text-input">Last Name</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="Last Name" />
+                  </CCol>
+                </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="number-input">Id Number</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="Id Number"></CInput>
+                    </CCol>
+                  </CFormGroup>
 
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-      </CRow>
-
-      <CRow>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Condensed Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              size="sm"
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-        <CCol xs="12" lg="6">
-          <CCard>
-            {/* <CCardHeader>
-              Bordered Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              bordered
-              itemsPerPage={5}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-
-      </CRow>
-
-      <CRow>
-        <CCol>
-          <CCard>
-            <CCardHeader>
-              Combined All Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              hover
-              striped
-              bordered
-              size="sm"
-              itemsPerPage={10}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-              }}
-            />
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Phone Number</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="0700000000"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Payroll Number</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="Payroll-number"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">NHIF Number</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="NHIF Number"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">YoB</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="1900"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Card Number</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="Card-Number"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="select">Rank</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CSelect custom name="select" id="select">
+                      <option value="0">Please select Rank</option>
+                      <option value="1">Bishop</option>
+                      <option value="2">Archdeacons</option>
+                      <option value="3">Area Deans</option>             
+                      <option value="1">Clergy</option>
+                      <option value="1">Office Staffs</option>
+                      <option value="1">Chaplains</option>
+                      <option value="1">Evangelists</option>
+                    </CSelect>
+                  </CCol>
+                </CFormGroup>
+              </CForm>
             </CCardBody>
+            {/* <CCardFooter>
+              <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+              <CButton type="reset" size="sm" color="danger"><CIcon name="cil-ban" /> Reset</CButton>
+            </CCardFooter> */}
           </CCard>
-        </CCol>
-      </CRow>
-        <CRow>
-        <CCol>
-          <CCard>
-            {/* <CCardHeader>
-              Combined All dark Table
-            </CCardHeader>
-            <CCardBody>
-            <CDataTable
-              items={usersData}
-              fields={fields}
-              dark
-              hover
-              striped
-              bordered
-              size="sm"
-              itemsPerPage={10}
-              pagination
-              scopedSlots = {{
-                'status':
-                  (item)=>(
-                    <td>
-                      <CBadge color={getBadge(item.status)}>
-                        {item.status}
-                      </CBadge>
-                    </td>
-                  )
-              }}
-            />
-            </CCardBody> */}
-          </CCard>
-        </CCol>
-      </CRow>
-    </>
-  )
-}
+                </CModalBody>
+              <CModalFooter>
+                {/* <CButton color="primary">Do Something</CButton>{' '}
+                <CButton 
+                  color="secondary" 
+                  onClick={() => setModal(false)}
+                >Cancel</CButton> */}
+                <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+              <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
+              </CModalFooter>
+            </CModal>
 
-export default Tables
+            <table className="table table-hover table-outline mb-0 d-none d-sm-table">
+              <thead className="thead-light">
+                <tr>
+                  <th className="text-center"><CIcon name="cil-people" /></th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>DoB</th>
+                  <th>IdNo</th>
+                  <th>Phone No</th>
+                  <th>Payroll No</th>
+                  <th>Card No</th>
+                  <th>Rank</th>
+                  <th>Insuarance Plan</th>
+                  <th>Spouce</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="text-center">
+                  {/* fetch data from the db*/}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </>
+            )
+};
 
+
+export default Table

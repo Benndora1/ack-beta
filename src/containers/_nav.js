@@ -23,11 +23,39 @@ const _nav =  [
     icon: 'cil-drop',
   },
   {
-    _tag: 'CSidebarNavItem',
+    _tag: 'CSidebarNavDropdown',
     name: 'Hospitals',
-    to: '/theme/typography',
-    icon: 'cil-pencil',
+    route: '/buttons',
+    icon: 'cil-cursor',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Kijabe',
+        to: '/buttons/buttons',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Agha Khan',
+        to: '/buttons/brand-buttons',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Coptic',
+        to: '/buttons/button-groups',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Melchizedek',
+        to: '/buttons/button-dropdowns',
+      }
+    ],
   },
+  // {
+  //   _tag: 'CSidebarNavItem',
+  //   name: 'Hospitals',
+  //   to: '/theme/typography',
+  //   icon: 'cil-pencil',
+  // },
   // {
   //   _tag: 'CSidebarNavTitle',
   //   _children: ['Components']
@@ -40,7 +68,7 @@ const _nav =  [
     // _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Roles',
+        name: 'Rank',
         to: '/base/breadcrumbs',
         icon: 'cil-pencil',
       },
@@ -123,34 +151,7 @@ const _nav =  [
       // },
     // ],
   // },
-  // {
-  //   _tag: 'CSidebarNavDropdown',
-  //   name: 'Buttons',
-  //   route: '/buttons',
-  //   icon: 'cil-cursor',
-  //   _children: [
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Buttons',
-  //       to: '/buttons/buttons',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Brand buttons',
-  //       to: '/buttons/brand-buttons',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Buttons groups',
-  //       to: '/buttons/button-groups',
-  //     },
-  //     {
-  //       _tag: 'CSidebarNavItem',
-  //       name: 'Dropdowns',
-  //       to: '/buttons/button-dropdowns',
-  //     }
-  //   ],
-  // },
+  
   // {
   //   _tag: 'CSidebarNavItem',
   //   name: 'Charts',
