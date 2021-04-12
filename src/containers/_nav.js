@@ -68,7 +68,7 @@ const _nav =  [
     // _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Roles',
+        name: 'Rank',
         to: '/base/breadcrumbs',
         icon: 'cil-pencil',
       },
