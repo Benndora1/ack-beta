@@ -43,7 +43,7 @@ CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of 
 
 ## CoreUI Pro
 
-**Only customers with [Enterpise Membership Plan](https://coreui.io/pro/#buy) have access to private github CoreUI Pro repository.**
+**Only customers with [Enterpise childrenhip Plan](https://coreui.io/pro/#buy) have access to private github CoreUI Pro repository.**
 
 * 💪  [CoreUI Pro Bootstrap Admin Template](https://coreui.io/pro/)
 * 💪  [CoreUI Pro Angular 9+ Admin Template](https://coreui.io/pro/angular)
@@ -153,7 +153,7 @@ See [the Releases section of our project](https://github.com/coreui/coreui-free-
 
 ## Community
 
-Get updates on CoreUI's development and chat with the project maintainers and community members.
+Get updates on CoreUI's development and chat with the project maintainers and community children.
 
 - Follow [@core_ui on Twitter](https://twitter.com/core_ui).
 - Read and subscribe to [CoreUI Blog](https://coreui.ui/blog/).

@@ -24,7 +24,7 @@ const Table = () => {
               <thead className="thead-light">
                 <tr>
                   <th className="text-center"><CIcon name="cil-people" /></th>
-                  <th>Member</th>
+                  <th>child</th>
                   <th>DoB</th>
                   <th>IdNo</th>
                   <th>Phone No</th>

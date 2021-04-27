@@ -26,38 +26,13 @@ const Table = () => {
 
   return (
     <>
-   {/* <CButton color="primary"
-              onClick={() => setModal(!modal)} 
-              className="mr-1"
-            >Add Role</CButton>
-            <CModal 
-              show={modal} 
-              onClose={setModal}
-            >
-              <CModalHeader closeButton>
-                <CModalTitle>Modal title</CModalTitle>
-              </CModalHeader>
-              <CModalBody>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </CModalBody>
-              <CModalFooter>
-                <CButton color="primary">Do Something</CButton>{' '}
-                <CButton 
-                  color="secondary" 
-                  onClick={() => setModal(false)}
-                >Cancel</CButton>
-              </CModalFooter>
-            </CModal> */}
+  
 
               <table className="table table-hover table-outline mb-0 d-none d-sm-table">
               <thead className="thead-light">
                 <tr>
                   {/* <th className="text-center"><CIcon name="cil-people" /></th> */}
-                  <th>Rank</th>
+                  <th>Role</th>
                   <th>Out-Patient Limit</th>
                   <th>In-Patient Limit</th>
                 </tr>
@@ -71,7 +46,7 @@ const Table = () => {
                    kSH 100,000
                   </td>
                   <td>
-                   kSH 700,000
+                   kSH 100,000,00
                   </td>
                   </tr>
                   <tr>
@@ -79,10 +54,10 @@ const Table = () => {
                     Archdeacons
                       </td>
                       <td>
-                        Ksh 70,000
+                        Ksh 80,000
                       </td>
                       <td>
-                      Ksh 500,000
+                      Ksh 100,000,000
                       </td>
                       </tr>   
                       <tr>
@@ -93,7 +68,7 @@ const Table = () => {
                         Ksh 70,000
                       </td>
                       <td>
-                      Ksh 350,000
+                      Ksh 750,000
                       </td>
                       </tr>   
                       <tr>
@@ -104,7 +79,7 @@ const Table = () => {
                         Ksh 70,000
                       </td>
                       <td>
-                      Ksh 350,000
+                      Ksh 750,000
                       </td>
                       </tr>   
                       <tr>
@@ -115,18 +90,18 @@ const Table = () => {
                         Ksh 50,000
                       </td>
                       <td>
-                      Ksh 300,000
+                      Ksh 500,000
                       </td>
                       </tr>   
                       <tr>
                     <td>
-                    Staff
+                    child
                       </td>
                       <td>
                         Ksh 50,000
                       </td>
                       <td>
-                      Ksh 300,000
+                      Ksh 500,000
                       </td>
                       </tr>   
                       <tr>
@@ -137,7 +112,7 @@ const Table = () => {
                         Ksh 50,000
                       </td>
                       <td>
-                      Ksh 250,000
+                      Ksh 500,000
                       </td>
                       </tr>   
               </tbody>

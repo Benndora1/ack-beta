@@ -68,16 +68,16 @@ const _nav =  [
     // _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Rank',
+        name: 'Roles',
         to: '/base/breadcrumbs',
         icon: 'cil-pencil',
       },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Insuarance',
-        to: '/base/cards',
-        icon: 'cil-pencil',
-      },
+      // {
+      //   _tag: 'CSidebarNavItem',
+      //   name: 'Insuarance',
+      //   to: '/base/cards',
+      //   icon: 'cil-pencil',
+      // },
       {
         _tag: 'CSidebarNavItem',
         name: 'Reports',

@@ -20,7 +20,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-primary"
           header="9.823"
-          text="Members online"
+          text="children online"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -28,7 +28,7 @@ const WidgetsDropdown = () => {
               style={{height: '70px'}}
               dataPoints={[65, 59, 84, 84, 51, 55, 40]}
               pointHoverBackgroundColor="primary"
-              label="Members"
+              label="children"
               labels="months"
             />
           }
@@ -51,7 +51,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-info"
           header="9.823"
-          text="Members online"
+          text="children online"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -60,7 +60,7 @@ const WidgetsDropdown = () => {
               dataPoints={[1, 18, 9, 17, 34, 22, 11]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
-              label="Members"
+              label="children"
               labels="months"
             />
           }
@@ -83,7 +83,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-warning"
           header="9.823"
-          text="Members online"
+          text="children online"
           footerSlot={
             <ChartLineSimple
               className="mt-3"
@@ -92,7 +92,7 @@ const WidgetsDropdown = () => {
               dataPoints={[78, 81, 80, 45, 34, 12, 40]}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
-              label="Members"
+              label="children"
               labels="months"
             />
           }
@@ -115,13 +115,13 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-danger"
           header="9.823"
-          text="Members online"
+          text="children online"
           footerSlot={
             <ChartBarSimple
               className="mt-3 mx-3"
               style={{height: '70px'}}
               backgroundColor="rgb(250, 152, 152)"
-              label="Members"
+              label="children"
               labels="months"
             />
           }

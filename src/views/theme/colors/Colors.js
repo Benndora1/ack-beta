@@ -29,7 +29,7 @@ import CIcon from '@coreui/icons-react'
 import { DocsLink } from 'src/reusable'
 
 
-//members
+//children
 
 const Table = () => { 
 
@@ -51,7 +51,6 @@ const Table = () => {
               </CModalHeader>
               <CModalBody>
               <CCard>
-           
             <CCardBody>
               <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
                 
@@ -63,6 +62,11 @@ const Table = () => {
                     <CInput id="text-input" name="text-input" placeholder="First Name" />
                   </CCol>
                 </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel htmlFor="text-input">Middle Name</CLabel>
+                  </CCol>
+                  </CFormGroup>
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="text-input">Last Name</CLabel>
@@ -90,7 +94,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Payroll Number</CLabel>
+                      <CLabel htmlFor="phone-number">Employment Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="input-number" name="number-input" placeholder="Payroll-number"></CInput>
@@ -114,6 +118,14 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
+                      <CLabel htmlFor="phone-number">Age</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="Card-Number"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
                       <CLabel htmlFor="phone-number">Card Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
@@ -122,7 +134,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="select">Rank</CLabel>
+                    <CLabel htmlFor="select">Role</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                     <CSelect custom name="select" id="select">
@@ -131,7 +143,7 @@ const Table = () => {
                       <option value="2">Archdeacons</option>
                       <option value="3">Area Deans</option>             
                       <option value="1">Clergy</option>
-                      <option value="1">Office Staffs</option>
+                      <option value="1">Office children</option>
                       <option value="1">Chaplains</option>
                       <option value="1">Evangelists</option>
                     </CSelect>
@@ -159,17 +171,20 @@ const Table = () => {
             <table className="table table-hover table-outline mb-0 d-none d-sm-table">
               <thead className="thead-light">
                 <tr>
-                  <th className="text-center"><CIcon name="cil-people" /></th>
+                  <th small className="text-center"><CIcon name="cil-people" /></th>
                   <th>First Name</th>
+                  <th>Middle Name</th>
                   <th>Last Name</th>
-                  <th>DoB</th>
+                  <th>YoB</th>
                   <th>IdNo</th>
                   <th>Phone No</th>
-                  <th>Payroll No</th>
+                  <th>Employment No</th>
                   <th>Card No</th>
-                  <th>Rank</th>
-                  <th>Insuarance Plan</th>
-                  <th>Spouce</th>
+                  <th>Role</th>
+                  <th>Inpatient limit</th>
+                  <th>Outpatient limit</th>
+                  <th>Outpatient Blance</th>
+                  <th>Inpatient Balance</th>
                   <th>Action</th>
                 </tr>
               </thead>
