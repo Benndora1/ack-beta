@@ -1,16 +1,18 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
+const config = {
+  s3: {
+    REGION: "YOUR_S3_UPLOADS_BUCKET_REGION",
+    BUCKET: "YOUR_S3_UPLOADS_BUCKET_NAME",
+  },
+  apiGateway: {
+    REGION: "YOUR_API_GATEWAY_REGION",
+    URL: "YOUR_API_GATEWAY_URL",
+  },
+  cognito: {
+    REGION: "us-east-2",
+    USER_POOL_ID: "us-east-2_e9as4mONQ",
+    APP_CLIENT_ID: "5i3n6lcc8gkqe0dvktldt9ibof",
+    IDENTITY_POOL_ID: "us-east-2:79026c81-ff86-4aac-8c52-0748b62a2f4c",
+  },
+};
 
-
-const firebaseConfig =firebase.initializeApp({
-    apiKey: "AIzaSyCtQv1lwoKjwwui7LUH3QdW_AjXKDiziXs",
-    authDomain: "ack-insurance-9663b.firebaseapp.com",
-    projectId: "ack-insurance-9663b",
-    storageBucket: "ack-insurance-9663b.appspot.com",
-    messagingSenderId: "1045171823215",
-    appId: "1:1045171823215:web:98c7458dc8689ec450239a",
-    measurementId: "G-PW4WBDV0P9"
-  });
-
-
-export default firebaseConfig;
+export default config;

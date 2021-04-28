@@ -1,5 +1,5 @@
-import React, {useCallback, useContext} from 'react'
-import { Link, Redirect, withRouter} from 'react-router-dom'
+import React, {useState, useContext} from 'react'
+import { Link, Redirect, useHistory, withRouter} from 'react-router-dom'
 // import ack from '../../../img/ack.jpg'
 import {
   CButton,
@@ -16,31 +16,32 @@ import {
   CRow
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import firebaseConfig from '../../../config'
 import {AuthContext} from '../../../Auth'
 
-const Login = ({ history }) => {
-  const handleLogin = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await firebaseConfig
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        alert(error);
-      }
-    },
-    [history]
-  );
+const Login = () => {
+  let history = useHistory();
+  const[email,setEmail]=useState('');
+  const[password,setPassword]=useState('');
 
-  const { currentUser } = useContext(AuthContext);
+  const {authenticate, getSession} = useContext(AuthContext);
+  
+  const handleLogin = e =>{
+    e.preventDefault();
 
-  if (currentUser) {
-    return <Redirect to="/" />;
+    authenticate(email, password)
+      .then(data =>{
+        console.log('Logged in!', data)
+        history.push("/")
+      })
+      .catch(err =>{
+        console.error('Login Failed!', err)
+      })
   }
+
+
+  // if (currentUser) {
+  //   return <Redirect to="/" />;
+  // }
 
   return (
     <div className="c-app c-default-layout flex-row align-items-center">
@@ -59,7 +60,7 @@ const Login = ({ history }) => {
                           <CIcon name="cil-user" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="email" name="email" placeholder="Email" autoComplete="username" />
+                      <CInput type="email" name="email" value={email} placeholder="Email" onChange={e=>setEmail(e.target.value)} autoComplete="username" />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupPrepend>
@@ -67,15 +68,15 @@ const Login = ({ history }) => {
                           <CIcon name="cil-lock-locked" />
                         </CInputGroupText>
                       </CInputGroupPrepend>
-                      <CInput type="password" name="password" placeholder="Password" autoComplete="current-password" />
+                      <CInput type="password" name="password" value={password} placeholder="Password" onChange={e=>setPassword(e.target.value)} autoComplete="current-password" />
                     </CInputGroup>
                     <CRow>
                       <CCol xs="6">
-                        <CButton color="primary" className="px-4" onclick={handleLogin}>Login</CButton>
+                        <CButton color="primary" className="px-4" onClick={handleLogin}>Login</CButton>
                       </CCol>
-                      <CCol xs="6" className="text-right">
+                      {/* <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0">Forgot password?</CButton>
-                      </CCol>
+                      </CCol> */}
                     </CRow>
                   </CForm>
                 </CCardBody>

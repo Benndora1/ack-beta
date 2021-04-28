@@ -1,25 +1,26 @@
-import React, { useContext } from 'react';
-import {AuthContext}from './firebaseAuthContext';
+import React, { useContext,useEffect,useState } from 'react';
 import {Route,Redirect} from 'react-router-dom';
+import {AuthContext} from './Auth'
 
 export default function ProtectedRoute(props){
-   
-    const authValue=useContext(AuthContext)
-    if (authValue.userDataPresent){
-        if(authValue.user==null){
-            return(<Redirect to={props.redirectTo}></Redirect>)
-        }
-        else{
-            return(
-            
-            <Route exact path={props.path}>
-                {props.children}
+    const [status, setStatus] = useState(false);
+    const {getSession}=useContext(AuthContext);
 
-            </Route>)
-        }
-    }
-    else{
-        
-        return null
-    }
+    useEffect(()=>{
+        getSession()
+        .then(session=>{
+            console.log('session:',session);
+            setStatus(true);
+        })
+    },[]);
+
+    return(
+        <div>
+            {status?(<Redirect to="/"></Redirect>):
+            <Route exact path="/login">
+                {props.children}
+            </Route>}
+        </div>
+
+    );
 }

@@ -3,12 +3,26 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
 import ProtectedRoute from './ProtectedRoute';
 import { AuthProvider } from './Auth';
+import { Amplify } from 'aws-amplify';
+import config from './config';
+
+
 
 const loading = (
   <div className="pt-3 text-center">
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
 )
+//aws configuration
+Amplify.configure({
+  Auth: {
+    mandatorySignIn: true,
+    region: config.cognito.REGION,
+    userPoolId: config.cognito.USER_POOL_ID,
+    identityPoolId: config.cognito.IDENTITY_POOL_ID,
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+  },
+});
 
 // Containers
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
