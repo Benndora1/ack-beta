@@ -96,7 +96,7 @@ const CNavbars = () => {
                 className="d-inline-block align-top"
                 alt="CoreuiVue"
               />
-              CoreUI React
+              ACK INSURANCE
             </CNavbarBrand>
           </CNavbar>
         </CCardBody>

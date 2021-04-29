@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   CButton,
   CCard,
   CCardBody,
   CCardHeader,
   CCol,
+  CDataTable,
+  CPagination,
   CSwitch,
   CInputCheckbox,
   CInputRadio,
@@ -27,14 +29,82 @@ import {
 
 import CIcon from '@coreui/icons-react'
 import { DocsLink } from 'src/reusable'
+import Amplify,{API} from 'aws-amplify';
+import config from '../../../config';
 
 
+
+Amplify.configure({
+    API: {
+        endpoints: [
+            {
+                name: "memberApi",
+                endpoint: "https://alppz8qbf7.execute-api.us-east-2.amazonaws.com/dev"
+            },
+            // {
+            //     name: "MyCustomCloudFrontApi",
+            //     endpoint: "https://api.my-custom-cloudfront-domain.com",
+
+            // }
+        ]
+    }
+});
+Amplify.configure(config);
+API.configure(config);
 //children
 
 const Table = () => { 
 
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
   const [small, setSmall] = useState(false)
+  const [members,setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(5);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [columnFilterValue, setColumnFilterValue] = useState();
+  const [tableFilterValue, setTableFilterValue] = useState("");
+  const [sorterValue, setSorterValue] = useState();
+
+  const [fetchTrigger, setFetchTrigger] = useState(0);
+    
+  const params = {
+    page,
+    columnFilterValue: JSON.stringify(columnFilterValue),
+    tableFilterValue,
+    sorterValue: JSON.stringify(sorterValue),
+    itemsPerPage
+  };
+
+  // const fetchMembers = async ()=>{
+  //   try{
+  //     const mbrData = await API.get('memberApi','/members/member_id');
+  //     console.log(mbrData);
+  //   }catch(error){}
+  // }
+
+  useEffect(()=>{
+    setLoading(true)
+    fetch('https://alppz8qbf7.execute-api.us-east-2.amazonaws.com/dev/members')
+    .then(function (data) {
+        data.json().then((json) => {
+          console.log(json);
+          setMembers(json.members);
+          setPages(json.pages);
+          setLoading(false);
+        });
+      })
+      .catch((e) => {
+        // wait for code sandbox server to unhibernate
+        setTimeout(() => {
+          setFetchTrigger(fetchTrigger + 1);
+        }, 2000);
+      });
+  }, [fetchTrigger]);
+   
+    // API.get('memberApi','/members/member_id')
+    // .then(res=>console.log(res));
+ 
 
   return (
     <>
@@ -166,39 +236,38 @@ const Table = () => {
                 <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
               <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
               </CModalFooter>
-            </CModal>
-
-            <table className="table table-hover table-outline mb-0 d-none d-sm-table">
-              <thead className="thead-light">
-                <tr>
-                  <th small className="text-center"><CIcon name="cil-people" /></th>
-                  <th>First Name</th>
-                  <th>Middle Name</th>
-                  <th>Last Name</th>
-                  <th>YoB</th>
-                  <th>IdNo</th>
-                  <th>Phone No</th>
-                  <th>Employment No</th>
-                  <th>Card No</th>
-                  <th>Role</th>
-                  <th>Inpatient limit</th>
-                  <th>Outpatient limit</th>
-                  <th>Outpatient Blance</th>
-                  <th>Inpatient Balance</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="text-center">
-                  {/* fetch data from the db*/}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            </CModal>                
+            <CCard className="p-5">
+              <CDataTable
+                items={members}
+                fields={["fname", "mname", "lname", "yob","id_nbr","phone_nbr","employment_nbr","member_id","rank","insuarance_limit_outpatient","nhif","age"]}
+                loading={loading}
+                hover
+                cleaner
+                columnFilter={{ external: true }}
+                columnFilterValue={columnFilterValue}
+                onColumnFilterChange={setColumnFilterValue}
+                tableFilter={{ external: true }}
+                tableFilterValue={tableFilterValue}
+                onTableFilterChange={setTableFilterValue}
+                sorter
+                sorterValue={sorterValue}
+                onSorterValueChange={setSorterValue}
+                itemsPerPageSelect={{ external: true }}
+                itemsPerPage={itemsPerPage}
+                onPaginationChange={setItemsPerPage}
+              />
+              <CPagination
+                pages={pages}
+                activePage={page}
+                onActivePageChange={setPage}
+                className={pages < 2 ? "d-none" : ""}
+              />
+            </CCard>  
+     
             </>
             )
 };
 
 
-export default Table
+export default Table;
