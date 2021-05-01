@@ -4,6 +4,8 @@ import {
   CCard,
   CCardBody,
   CCardHeader,
+  CBadge,
+  CCollapse,
   CCol,
   CDataTable,
   CPagination,
@@ -58,6 +60,7 @@ const Table = () => {
   const [modal, setModal] = useState(false)
   const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
+  const [details, setDetails] = useState([])
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(5);
@@ -75,6 +78,34 @@ const Table = () => {
     sorterValue: JSON.stringify(sorterValue),
     itemsPerPage
   };
+  const getBadge = (status)=>{
+    switch (status) {
+      case 'Active': return 'success'
+      case 'Inactive': return 'secondary'
+      case 'Pending': return 'warning'
+      case 'Banned': return 'danger'
+      default: return 'primary'
+    }
+  }
+  const toggleDetails = (index) => {
+    const position = details.indexOf(members)
+    let newDetails = details.slice()
+    if (position !== -1) {
+      newDetails.splice(position, 1)
+    } else {
+      newDetails = [...details, members]
+    }
+    setDetails(newDetails)
+  }
+
+
+
+
+
+
+
+
+
 
   // const fetchMembers = async ()=>{
   //   try{
@@ -129,12 +160,15 @@ const Table = () => {
                     <CLabel htmlFor="text-input">First Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="First Name" />
+                    <CInput id="text-input" name="text-input" placeholder="Joe" />
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="text-input">Middle Name</CLabel>
+                  </CCol>
+                  <CCol xs="12" md="9">
+                    <CInput id="text-input" name="text-input" placeholder="John" />
                   </CCol>
                   </CFormGroup>
                 <CFormGroup row>
@@ -142,7 +176,7 @@ const Table = () => {
                     <CLabel htmlFor="text-input">Last Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Last Name" />
+                    <CInput id="text-input" name="text-input" placeholder="Doe" />
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
@@ -153,7 +187,6 @@ const Table = () => {
                       <CInput id="input-number" name="number-input" placeholder="Id Number"></CInput>
                     </CCol>
                   </CFormGroup>
-
                   <CFormGroup row>
                     <CCol md="3">
                       <CLabel htmlFor="phone-number">Phone Number</CLabel>
@@ -164,7 +197,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Employment Number</CLabel>
+                      <CLabel htmlFor="phone-number">Payroll Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="input-number" name="number-input" placeholder="Payroll-number"></CInput>
@@ -191,7 +224,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Age</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Card-Number"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="60"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -200,6 +233,14 @@ const Table = () => {
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="input-number" name="number-input" placeholder="Card-Number"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Card Status</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="Active"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -240,7 +281,7 @@ const Table = () => {
             <CCard className="p-5">
               <CDataTable
                 items={members}
-                fields={["fname", "mname", "lname", "yob","id_nbr","phone_nbr","employment_nbr","rank","insuarance_limit_outpatient","nhif","age"]}
+                fields={["fname","lname","id_nbr","rank","nhif","status"]}
                 loading={loading}
                 hover
                 cleaner
@@ -256,8 +297,48 @@ const Table = () => {
                 itemsPerPageSelect={{ external: true }}
                 itemsPerPage={itemsPerPage}
                 onPaginationChange={setItemsPerPage}
-              />
-              <CPagination
+                scopedSlots = {{
+                  'status':
+                    (item)=>(
+                      <td>
+                        <CBadge color={getBadge(item.status)}>
+                          {item.status}
+                        </CBadge>
+                      </td>
+                    ),
+                  'show_details':
+                    (item, index)=>{
+                      return (
+                        <td className="py-2">
+                          <CButton
+                            color="primary"
+                            variant="outline"
+                            shape="square"
+                            size="sm"
+                            onClick={()=>{toggleDetails(index)}}
+                          >
+                            {details.includes(index) ? 'Hide' : 'Show'}
+                          </CButton>
+                        </td>
+                        )
+                    },
+                  'details':
+                      (item, index)=>{
+                        return (
+                        <CCollapse show={details.includes(index)}>
+                          <CCardBody>
+                            <CButton size="sm" color="info">
+                              Edit Member
+                            </CButton>
+                            <CButton size="sm" color="danger" className="ml-1">
+                              Delete Member
+                            </CButton>
+                          </CCardBody>
+                        </CCollapse>
+                      )
+                    }
+                }}/>
+            <CPagination
                 pages={pages}
                 activePage={page}
                 onActivePageChange={setPage}
