@@ -240,7 +240,7 @@ const Table = () => {
             <CCard className="p-5">
               <CDataTable
                 items={members}
-                fields={["fname", "mname", "lname", "yob","id_nbr","phone_nbr","employment_nbr","member_id","rank","insuarance_limit_outpatient","nhif","age"]}
+                fields={["fname", "mname", "lname", "yob","id_nbr","phone_nbr","employment_nbr","rank","insuarance_limit_outpatient","nhif","age"]}
                 loading={loading}
                 hover
                 cleaner
