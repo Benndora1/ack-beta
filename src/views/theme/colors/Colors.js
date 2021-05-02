@@ -3,20 +3,9 @@ import {
   CButton,
   CCard,
   CCardBody,
-  CCardHeader,
-  CBadge,
-  CCollapse,
   CCol,
   CDataTable,
-  CPagination,
-  CSwitch,
-  CInputCheckbox,
-  CInputRadio,
-  CInputFile,
-  CCardFooter,
   CSelect,
-  CTextarea,
-  CFormText,
   CForm,
   CLabel,
   CInput,
@@ -26,11 +15,10 @@ import {
   CModalFooter,
   CModalHeader,
   CModalTitle,
-  CRow
-} from '@coreui/react'
+  } from '@coreui/react'
 
 import CIcon from '@coreui/icons-react'
-import { DocsLink } from 'src/reusable'
+// import { DocsLink } from 'src/reusable'
 import Amplify,{API} from 'aws-amplify';
 import config from '../../../config';
 
@@ -58,7 +46,7 @@ API.configure(config);
 const Table = () => { 
 
   const [modal, setModal] = useState(false)
-  const [small, setSmall] = useState(false)
+  // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
   const [details, setDetails] = useState([])
   const [loading, setLoading] = useState(true);
@@ -78,6 +66,8 @@ const Table = () => {
     sorterValue: JSON.stringify(sorterValue),
     itemsPerPage
   };
+
+  const fields = ["fname","lname","id_nbr","rank","nhif","status"]
   const getBadge = (status)=>{
     switch (status) {
       case 'Active': return 'success'
@@ -97,16 +87,6 @@ const Table = () => {
     }
     setDetails(newDetails)
   }
-
-
-
-
-
-
-
-
-
-
   // const fetchMembers = async ()=>{
   //   try{
   //     const mbrData = await API.get('memberApi','/members/member_id');
@@ -135,6 +115,15 @@ const Table = () => {
    
     // API.get('memberApi','/members/member_id')
     // .then(res=>console.log(res));
+
+
+
+
+
+
+
+
+
  
 
   return (
@@ -281,69 +270,68 @@ const Table = () => {
             <CCard className="p-5">
               <CDataTable
                 items={members}
-                fields={["fname","lname","id_nbr","rank","nhif","status"]}
+                fields={fields}
                 loading={loading}
                 hover
                 cleaner
-                columnFilter={{ external: true }}
-                columnFilterValue={columnFilterValue}
-                onColumnFilterChange={setColumnFilterValue}
-                tableFilter={{ external: true }}
-                tableFilterValue={tableFilterValue}
-                onTableFilterChange={setTableFilterValue}
+                columnFilter
+                tableFilter
+                footer
+                itemsPerPageSelect
+                itemsPerPage={10}
+                hover
                 sorter
-                sorterValue={sorterValue}
-                onSorterValueChange={setSorterValue}
-                itemsPerPageSelect={{ external: true }}
-                itemsPerPage={itemsPerPage}
-                onPaginationChange={setItemsPerPage}
-                scopedSlots = {{
-                  'status':
-                    (member)=>(
-                      <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {item.status}
-                        </CBadge>
-                      </td>
-                    ),
-                  'show_details':
-                    (item, index)=>{
-                      return (
-                        <td className="py-2">
-                          <CButton
-                            color="primary"
-                            variant="outline"
-                            shape="square"
-                            size="sm"
-                            onClick={()=>{toggleDetails(index)}}
-                          >
-                            {details.includes(index) ? 'Hide' : 'Show'}
-                          </CButton>
-                        </td>
-                        )
-                    },
-                  'details':
-                      (item, index)=>{
-                        return (
-                        <CCollapse show={details.includes(index)}>
-                          <CCardBody>
-                            <CButton size="sm" color="info">
-                              Edit Member
-                            </CButton>
-                            <CButton size="sm" color="danger" className="ml-1">
-                              Delete Member
-                            </CButton>
-                          </CCardBody>
-                        </CCollapse>
-                      )
-                    }
-                }}/>
-            <CPagination
+                pagination
+                // itemsPerPage={10}
+                // onPaginationChange={setItemsPerPage}
+                // scopedSlots = {{
+                //   'status':
+                //     (item)=>(
+                //       <td>
+                //         <CBadge color={getBadge(item.status)}>
+                //           {item.status}
+                //         </CBadge>
+                //       </td>
+                //     ),
+                //   'show_details':
+                //     (item, index)=>{
+                //       return (
+                //         <td className="py-2">
+                //           <CButton
+                //             color="primary"
+                //             variant="outline"
+                //             shape="square"
+                //             size="sm"
+                //             onClick={()=>{toggleDetails(index)}}
+                //           >
+                //             {details.includes(index) ? 'Hide' : 'Show'}
+                //           </CButton>
+                //         </td>
+                //         )
+                //     },
+                //   'details':
+                //       (item, index)=>{
+                //         return (
+                //         <CCollapse show={details.includes(index)}>
+                //           <CCardBody>
+                //             <CButton size="sm" color="info">
+                //               Edit Member
+                //             </CButton>
+                //             <CButton size="sm" color="danger" className="ml-1">
+                //               Delete Member
+                //             </CButton>
+                //           </CCardBody>
+                //         </CCollapse>
+                //       )
+                //     }
+                // }}
+                />
+            {/* <CPagination
                 pages={pages}
                 activePage={page}
                 onActivePageChange={setPage}
                 className={pages < 2 ? "d-none" : ""}
-              />
+              /> */}
             </CCard>  
      
             </>

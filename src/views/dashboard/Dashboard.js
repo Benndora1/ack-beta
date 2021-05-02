@@ -113,7 +113,7 @@ const Dashboard = () => {
         <CCol>
           <CCard>
             <CCardHeader>
-              Traffic {' & '} Sales
+              Traffic
             </CCardHeader>
             <CCardBody>
               <CRow>
@@ -122,7 +122,7 @@ const Dashboard = () => {
                   <CRow>
                     <CCol sm="6">
                       <CCallout color="info">
-                        <small className="text-muted">New Clients</small>
+                        <small className="text-muted">New Member</small>
                         <br />
                         <strong className="h4">9,123</strong>
                       </CCallout>
@@ -228,7 +228,7 @@ const Dashboard = () => {
 
                 <CCol xs="12" md="6" xl="6">
 
-                  <CRow>
+                  {/* <CRow>
                     <CCol sm="6">
                       <CCallout color="warning">
                         <small className="text-muted">Pageviews</small>
@@ -243,9 +243,9 @@ const Dashboard = () => {
                         <strong className="h4">49,123</strong>
                       </CCallout>
                     </CCol>
-                  </CRow>
+                  </CRow> */}
 
-                  <hr className="mt-0" />
+                  {/* <hr className="mt-0" />
 
                   <div className="progress-group mb-4">
                     <div className="progress-group-header">
@@ -276,7 +276,7 @@ const Dashboard = () => {
                     <div className="progress-group-bars">
                       <CProgress className="progress-xs" color="success" value="56" />
                     </div>
-                  </div>
+                  </div> */}
 
 
                   <div className="progress-group">
