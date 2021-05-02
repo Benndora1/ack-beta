@@ -299,9 +299,9 @@ const Table = () => {
                 onPaginationChange={setItemsPerPage}
                 scopedSlots = {{
                   'status':
-                    (item)=>(
+                    (member)=>(
                       <td>
-                        <CBadge color={getBadge(item.status)}>
+                        <CBadge color={getBadge(member.status)}>
                           {item.status}
                         </CBadge>
                       </td>
