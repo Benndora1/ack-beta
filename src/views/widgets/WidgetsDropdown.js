@@ -20,7 +20,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-primary"
           header="9.823"
-          text="children online"
+          text="All Members"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -28,7 +28,7 @@ const WidgetsDropdown = () => {
               style={{height: '70px'}}
               dataPoints={[65, 59, 84, 84, 51, 55, 40]}
               pointHoverBackgroundColor="primary"
-              label="children"
+              label="members"
               labels="months"
             />
           }
@@ -51,7 +51,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-info"
           header="9.823"
-          text="children online"
+          text="Al Hospitals"
           footerSlot={
             <ChartLineSimple
               pointed
