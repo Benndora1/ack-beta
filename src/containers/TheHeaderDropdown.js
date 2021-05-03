@@ -21,12 +21,12 @@ const TheHeaderDropdown = () => {
           <CImg
             src={'avatars/6.jpg'}
             className="c-avatar-img"
-            alt="admin@bootstrapmaster.com"
+            alt="admin"
           />
         </div>
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
-        <CDropdownItem
+        {/* <CDropdownItem
           header
           tag="div"
           color="light"
@@ -83,7 +83,7 @@ const TheHeaderDropdown = () => {
         <CDropdownItem>
           <CIcon name="cil-lock-locked" className="mfe-2" />
           Lock Account
-        </CDropdownItem>
+        </CDropdownItem> */}
       </CDropdownMenu>
     </CDropdown>
   )

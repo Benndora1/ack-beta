@@ -10,7 +10,7 @@ import {
 import CIcon from '@coreui/icons-react'
 
 const TheHeaderDropdownMssg = () => {
-  const itemsCount = 4
+  const itemsCount = 0
   return (
     <CDropdown
       inNav
@@ -26,10 +26,10 @@ const TheHeaderDropdownMssg = () => {
           tag="div"
           color="light"
         >
-          <strong>You have {itemsCount} messages</strong>
+          {/* <strong>You have {itemsCount} messages</strong> */}
         </CDropdownItem>
         <CDropdownItem href="#">
-          <div className="message">
+          {/* <div className="message">
             <div className="pt-3 mr-3 float-left">
               <div className="c-avatar">
                 <CImg
@@ -50,12 +50,12 @@ const TheHeaderDropdownMssg = () => {
             <div className="small text-muted text-truncate">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...
             </div>
-          </div>
+          </div> */}
         </CDropdownItem>
 
-        <CDropdownItem href="#">
+        <CDropdownItem href="">
           <div className="message">
-            <div className="pt-3 mr-3 float-left">
+            {/* <div className="pt-3 mr-3 float-left">
               <div className="c-avatar">
                 <CImg
                   src={'avatars/6.jpg'}
@@ -64,19 +64,19 @@ const TheHeaderDropdownMssg = () => {
                 />
                 <span className="c-avatar-status bg-warning"></span>
               </div>
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <small className="text-muted">Jane Dovve</small>
               <small className="text-muted float-right mt-1">5 minutes ago</small>
-            </div>
-            <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-            <div className="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...
-            </div>
+            </div> */}
+            {/* <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div> */}
+            {/* <div className="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...
+            </div> */}
           </div>
         </CDropdownItem>
 
         <CDropdownItem href="#">
-          <div className="message">
+          {/* <div className="message">
             <div className="pt-3 mr-3 float-left">
               <div className="c-avatar">
                 <CImg
@@ -94,11 +94,11 @@ const TheHeaderDropdownMssg = () => {
             <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
             <div className="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...
             </div>
-          </div>
+          </div> */}
         </CDropdownItem>
 
         <CDropdownItem href="#">
-          <div className="message">
+          {/* <div className="message">
             <div className="pt-3 mr-3 float-left">
               <div className="c-avatar">
                 <CImg
@@ -116,9 +116,9 @@ const TheHeaderDropdownMssg = () => {
             <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
             <div className="small text-muted text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...
             </div>
-          </div>
+          </div> */}
         </CDropdownItem>
-        <CDropdownItem href="#" className="text-center border-top"><strong>View all messages</strong></CDropdownItem>
+        {/* <CDropdownItem href="#" className="text-center border-top"><strong>View all messages</strong></CDropdownItem> */}
       </CDropdownMenu>
     </CDropdown>
   )
