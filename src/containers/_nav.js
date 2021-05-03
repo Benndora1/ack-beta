@@ -20,13 +20,13 @@ const _nav =  [
     _tag: 'CSidebarNavItem',
     name: 'Members',
     to: '/theme/colors',
-    icon: 'cil-drop',
+    icon: 'cil-people',
   },
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Hospitals',
     route: '/buttons',
-    icon: 'cil-cursor',
+    icon: 'cil-pencil',
     _children: [
       {
         _tag: 'CSidebarNavItem',
@@ -70,7 +70,7 @@ const _nav =  [
         _tag: 'CSidebarNavItem',
         name: 'Roles',
         to: '/base/breadcrumbs',
-        icon: 'cil-pencil',
+        icon: 'cil-user',
       },
       // {
       //   _tag: 'CSidebarNavItem',
@@ -82,7 +82,7 @@ const _nav =  [
         _tag: 'CSidebarNavItem',
         name: 'Reports',
         to: '/base/carousels',
-        icon: 'cil-pencil',
+        icon: 'cil-graph',
       },
       // {
       //   _tag: 'CSidebarNavItem',

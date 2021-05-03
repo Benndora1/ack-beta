@@ -24,7 +24,7 @@ const Widgets = () => {
     <>
       <WidgetsDropdown />
       <CRow>
-        <CCol xs="12" sm="6" lg="3">
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetProgress color="success" header="89.9%" text="Lorem ipsum..." footer="Lorem ipsum dolor sit amet enim."/>
         </CCol>
         <CCol xs="12" sm="6" lg="3">
@@ -50,17 +50,17 @@ const Widgets = () => {
         </CCol>
         <CCol xs="12" sm="6" lg="3">
           <CWidgetProgress inverse color="danger" variant="inverse" value={95} header="2 TB" text="Lorem ipsum..." footer="Lorem ipsum dolor sit amet enim."/>
-        </CCol>
+        </CCol> */}
 
       </CRow>
 
       <CRow>
-        <CCol xs="12" sm="6" lg="3">
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetIcon text="income" header="$1.999,50" color="primary">
             <CIcon width={24} name="cil-settings"/>
           </CWidgetIcon>
-        </CCol>
-        <CCol xs="12" sm="6" lg="3">
+        </CCol> */}
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetIcon text="income" header="$1.999,50" color="info">
             <CIcon width={24} name="cil-user"/>
           </CWidgetIcon>
@@ -69,8 +69,8 @@ const Widgets = () => {
           <CWidgetIcon text="income" header="$1.999,50" color="warning">
             <CIcon width={24} name="cil-moon"/>
           </CWidgetIcon>
-        </CCol>
-        <CCol xs="12" sm="6" lg="3">
+        </CCol> */}
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetIcon text="income" header="$1.999,50" color="danger">
             <CIcon width={24} name="cil-bell"/>
           </CWidgetIcon>
@@ -79,8 +79,8 @@ const Widgets = () => {
           <CWidgetIcon text="income" header="$1.999,50" color="primary" iconPadding={false}>
             <CIcon width={24} name="cil-settings"/>
           </CWidgetIcon>
-        </CCol>
-        <CCol xs="12" sm="6" lg="3">
+        </CCol> */}
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetIcon text="income" header="$1.999,50" color="info" iconPadding={false}>
             <CIcon width={24} name="cil-laptop"/>
           </CWidgetIcon>
@@ -89,8 +89,8 @@ const Widgets = () => {
           <CWidgetIcon text="income" header="$1.999,50" color="warning" iconPadding={false}>
             <CIcon width={24} name="cil-moon"/>
           </CWidgetIcon>
-        </CCol>
-        <CCol xs="12" sm="6" lg="3">
+        </CCol> */}
+        {/* <CCol xs="12" sm="6" lg="3">
           <CWidgetIcon text="income" header="$1.999,50" color="danger" iconPadding={false}>
             <CIcon width={24} name="cil-bell"/>
           </CWidgetIcon>
@@ -105,8 +105,8 @@ const Widgets = () => {
           <CWidgetIcon text="income" header="$1.999,50" color="info" iconPadding={false}>
             <CIcon width={24} name="cil-laptop" className="mx-5"/>
           </CWidgetIcon>
-        </CCol>
-        <CCol xs="12" sm="6" lg="4">
+        </CCol> */}
+        {/* <CCol xs="12" sm="6" lg="4">
           <CWidgetIcon 
             text="income" 
             header="$1.999,50" 
@@ -128,8 +128,8 @@ const Widgets = () => {
           >
             <CIcon width={24} name="cil-moon" className="mx-5"/>
           </CWidgetIcon>
-        </CCol>
-      </CRow>
+        </CCol> */}
+      {/* </CRow>
       <WidgetsBrand/>
       <WidgetsBrand withCharts/>
       <CCardGroup className="mb-4">
@@ -361,7 +361,7 @@ const Widgets = () => {
           <CWidgetSimple header="title" text="1,123">
             <ChartBarSimple style={{ height: '40px' }} backgroundColor="success"/>
           </CWidgetSimple>
-        </CCol>
+        </CCol> */}
       </CRow>
     </>
   )
