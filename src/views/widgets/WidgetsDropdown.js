@@ -19,7 +19,7 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-primary"
-          header="9.823"
+          header="800"
           text="All Members"
           footerSlot={
             <ChartLineSimple
@@ -50,8 +50,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="9.823"
-          text="Al Hospitals"
+          header="3"
+          text="All Hospitals"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -60,7 +60,7 @@ const WidgetsDropdown = () => {
               dataPoints={[1, 18, 9, 17, 34, 22, 11]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
-              label="children"
+              label="Hospitals"
               labels="months"
             />
           }
@@ -82,8 +82,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-warning"
-          header="9.823"
-          text="children online"
+          header="Ksh 90823"
+          text="Total Expenses"
           footerSlot={
             <ChartLineSimple
               className="mt-3"
@@ -92,7 +92,7 @@ const WidgetsDropdown = () => {
               dataPoints={[78, 81, 80, 45, 34, 12, 40]}
               options={{ elements: { line: { borderWidth: 2.5 }}}}
               pointHoverBackgroundColor="warning"
-              label="children"
+              label="Expenses"
               labels="months"
             />
           }
@@ -114,14 +114,14 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="9.823"
-          text="children online"
+          header="Ksh 20M"
+          text="Balance"
           footerSlot={
             <ChartBarSimple
               className="mt-3 mx-3"
               style={{height: '70px'}}
               backgroundColor="rgb(250, 152, 152)"
-              label="children"
+              label="Balance"
               labels="months"
             />
           }

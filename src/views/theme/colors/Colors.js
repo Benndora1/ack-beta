@@ -5,6 +5,8 @@ import {
   CCardBody,
   CCol,
   CDataTable,
+  CBadge,
+  CCollapse,
   CSelect,
   CForm,
   CLabel,
@@ -48,7 +50,8 @@ const Table = () => {
   const [modal, setModal] = useState(false)
   // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
-  const [details, setDetails] = useState([])
+  const [member, setMember] = useState([]);
+  const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(5);
@@ -67,7 +70,7 @@ const Table = () => {
     itemsPerPage
   };
 
-  const fields = ["fname","lname","id_nbr","rank","nhif","status"]
+  const fields = ["fname","lname","id_nbr","rank","nhif","status","show_details"]
   const getBadge = (status)=>{
     switch (status) {
       case 'Active': return 'success'
@@ -77,6 +80,8 @@ const Table = () => {
       default: return 'primary'
     }
   }
+
+  
   const toggleDetails = (index) => {
     const position = details.indexOf(members)
     let newDetails = details.slice()
@@ -115,6 +120,9 @@ const Table = () => {
    
     // API.get('memberApi','/members/member_id')
     // .then(res=>console.log(res));
+
+
+    
 
 
 
@@ -276,55 +284,57 @@ const Table = () => {
                 cleaner
                 columnFilter
                 tableFilter
-                footer
                 itemsPerPageSelect
                 itemsPerPage={10}
                 hover
                 sorter
                 pagination
-                // itemsPerPage={10}
-                // onPaginationChange={setItemsPerPage}
-                // scopedSlots = {{
-                //   'status':
-                //     (item)=>(
-                //       <td>
-                //         <CBadge color={getBadge(item.status)}>
-                //           {item.status}
-                //         </CBadge>
-                //       </td>
-                //     ),
-                //   'show_details':
-                //     (item, index)=>{
-                //       return (
-                //         <td className="py-2">
-                //           <CButton
-                //             color="primary"
-                //             variant="outline"
-                //             shape="square"
-                //             size="sm"
-                //             onClick={()=>{toggleDetails(index)}}
-                //           >
-                //             {details.includes(index) ? 'Hide' : 'Show'}
-                //           </CButton>
-                //         </td>
-                //         )
-                //     },
-                //   'details':
-                //       (item, index)=>{
-                //         return (
-                //         <CCollapse show={details.includes(index)}>
-                //           <CCardBody>
-                //             <CButton size="sm" color="info">
-                //               Edit Member
-                //             </CButton>
-                //             <CButton size="sm" color="danger" className="ml-1">
-                //               Delete Member
-                //             </CButton>
-                //           </CCardBody>
-                //         </CCollapse>
-                //       )
-                //     }
-                // }}
+                scopedSlots = {{
+                  'status':
+                    (member)=>(
+                      <td>
+                        <CBadge color={getBadge(member.status)}>
+                          {member.status}
+                        </CBadge>
+                      </td>
+                    ),
+                  'show_details':
+                    (item, index)=>{
+                      return (
+                        <td className="py-2">
+                          <CButton
+                            color="primary"
+                            variant="outline"
+                            shape="square"
+                            size="sm"
+                            onClick={()=>{toggleDetails(index)}}
+                          >
+                            {details.includes(index) ? 'Hide' : 'Show'}
+                          </CButton>
+                        </td>
+                        )
+                    },
+                  'details':
+                      (member, index)=>{
+                        return (
+                          <CCollapse show={details.includes(index)}>
+                <CCardBody>
+                  <h4>
+                    {member.fname}
+                  </h4>
+                  <p className="text-muted">Member Details</p>
+                  <CButton size="sm" color="info">
+                    User Settings
+                  </CButton>
+                  <CButton size="sm" color="danger" className="ml-1">
+                    Delete
+                  </CButton>
+                </CCardBody>
+              </CCollapse>
+                       
+                      )
+                    }
+                }}
                 />
             {/* <CPagination
                 pages={pages}
