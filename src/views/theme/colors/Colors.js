@@ -70,13 +70,33 @@ const Table = () => {
     itemsPerPage
   };
 
-  const fields = ["fname","lname","id_nbr","rank","nhif","status","show_details"]
+  const fields = [
+    { key: 'fname',_style: {width: '22%'}},
+    { key: 'lname', _style: {width: '22%'}},
+    { key: 'id_nbr', _style: {width: '20%'}},
+    { key: 'rank', _style: {width: '20%'}},
+    { key: 'nhif', _style: {width: '20%'}},
+    { key: 'status', _style: {width: '20%'}},
+    {
+      key: 'show_details',
+      // label: "",
+      _style: { width: '1%' },
+      sorter: false,
+      filter: false
+    }
+    // { key: 'lname', _style: {width: '40%'}},
+
+
+
+    
+    // "id_nbr","rank","nhif","status","show_details"
+  ]
   const getBadge = (status)=>{
     switch (status) {
       case 'Active': return 'success'
       case 'Inactive': return 'secondary'
-      case 'Pending': return 'warning'
-      case 'Banned': return 'danger'
+      // case 'Pending': return 'warning'
+      // case 'Banned': return 'danger'
       default: return 'primary'
     }
   }
@@ -119,20 +139,7 @@ const Table = () => {
   }, [fetchTrigger]);
    
     // API.get('memberApi','/members/member_id')
-    // .then(res=>console.log(res));
-
-
-    
-
-
-
-
-
-
-
-
-
- 
+    // .then(res=>console.log(res)); 
 
   return (
     <>
@@ -290,14 +297,14 @@ const Table = () => {
                 sorter
                 pagination
                 scopedSlots = {{
-                  'status':
-                    (member)=>(
-                      <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {member.status}
-                        </CBadge>
-                      </td>
-                    ),
+                  // 'status':
+                  //   (member)=>(
+                  //     <td>
+                  //       <CBadge color={getBadge(member.status)}>
+                  //         {member.status}
+                  //       </CBadge>
+                  //     </td>
+                  //   ),
                   'show_details':
                     (item, index)=>{
                       return (
@@ -320,7 +327,7 @@ const Table = () => {
                           <CCollapse show={details.includes(index)}>
                 <CCardBody>
                   <h4>
-                    {member.fname}
+                    {members.memeber_id}
                   </h4>
                   <p className="text-muted">Member Details</p>
                   <CButton size="sm" color="info">
