@@ -1,26 +1,17 @@
-import React, { useContext,useEffect,useState } from 'react';
+import React, { useContext} from 'react';
 import {Route,Redirect} from 'react-router-dom';
 import {AuthContext} from './Auth'
 
-export default function ProtectedRoute(props){
-    const [status, setStatus] = useState(false);
-    const {getSession}=useContext(AuthContext);
-
-    useEffect(()=>{
-        getSession()
-        .then(session=>{
-            console.log('session:',session);
-            setStatus(true);
-        })
-    },[]);
+export default function ProtectedRoute(children, ...rest){
+    const { currentUser }=useContext(AuthContext);
 
     return(
-        <div>
-            {status?(<Redirect to="/"></Redirect>):
-            <Route exact path="/login">
-                {props.children}
-            </Route>}
-        </div>
+        
+        <Route
+        {...rest}
+        render={()=> currentUser ? children : <Redirect to='/login'/>}>
+            
+        </Route>
 
     );
 }

@@ -71,12 +71,12 @@ const Table = () => {
   };
 
   const fields = [
-    { key: 'fname',_style: {width: '22%'}},
-    { key: 'lname', _style: {width: '22%'}},
-    { key: 'id_nbr', _style: {width: '20%'}},
-    { key: 'rank', _style: {width: '20%'}},
-    { key: 'nhif', _style: {width: '20%'}},
-    { key: 'status', _style: {width: '20%'}},
+    { key: 'member_pic',_style: {width: '22%'}},
+    { key: 'member_name', _style: {width: '22%'}},
+    { key: 'member_nbr', _style: {width: '20%'}},
+    { key: 'member_role', _style: {width: '20%'}},
+    { key: 'total_bal', _style: {width: '20%'}},
+    { key: 'card_status', _style: {width: '20%'}},
     {
       key: 'show_details',
       // label: "",
@@ -121,7 +121,7 @@ const Table = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch('https://alppz8qbf7.execute-api.us-east-2.amazonaws.com/dev/members')
+    fetch('https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
     .then(function (data) {
         data.json().then((json) => {
           console.log(json);
