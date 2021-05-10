@@ -30,8 +30,8 @@ Amplify.configure({
     API: {
         endpoints: [
             {
-                name: "memberApi",
-                endpoint: "https://alppz8qbf7.execute-api.us-east-2.amazonaws.com/dev"
+                name: "medicare-stack",
+                endpoint: "g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
             },
             // {
             //     name: "MyCustomCloudFrontApi",
@@ -71,12 +71,14 @@ const Table = () => {
   };
 
   const fields = [
-    { key: 'fname',_style: {width: '22%'}},
-    { key: 'lname', _style: {width: '22%'}},
-    { key: 'id_nbr', _style: {width: '20%'}},
-    { key: 'rank', _style: {width: '20%'}},
-    { key: 'nhif', _style: {width: '20%'}},
-    { key: 'status', _style: {width: '20%'}},
+    { key: 'member_uid',_style: {width: '22%'}},
+    { key: 'patient_type', _style: {width: '22%'}},
+    { key: 'member_name', _style: {width: '20%'}},
+    { key: 'member_nbr', _style: {width: '20%'}},
+    { key: 'id_no', _style: {width: '20%'}},
+    { key: '', _style: {width: '20%'}},
+    // { key: 'status', _style: {width: '20%'}},
+    // { key: 'status', _style: {width: '20%'}},
     {
       key: 'show_details',
       // label: "",
@@ -121,7 +123,7 @@ const Table = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch('https://alppz8qbf7.execute-api.us-east-2.amazonaws.com/dev/members')
+    fetch('g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
     .then(function (data) {
         data.json().then((json) => {
           console.log(json);
