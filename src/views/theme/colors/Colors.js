@@ -50,7 +50,6 @@ const Table = () => {
   const [modal, setModal] = useState(false)
   // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
-  const [memberDetails,setMemberDetails] = useState( "member_uid":'', "id_no": '',"tel_no":'', "nhif_no":'', "nipatient_bal":'',"outpatient_bal":'', "member_nbr":'',"member_role":'');
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -61,6 +60,16 @@ const Table = () => {
   const [sorterValue, setSorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
+  const [memberDetails,setMemberDetails] = useState({
+     "member_uid":'',
+      "id_no": '',
+      "tel_no":'',
+      "nhif_no":'',
+      "nipatient_bal":'',
+      "outpatient_bal":'',
+      "member_nbr":'',
+      "member_role":''
+  });
     
   const params = {
     page,
@@ -104,6 +113,10 @@ const Table = () => {
       // case 'Banned': return 'danger'
       default: return 'primary'
     }
+  }
+  
+  const handle = (e) =>{
+
   }
 
   
@@ -169,7 +182,7 @@ const Table = () => {
                     <CLabel htmlFor="text-input">Member Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Doe" value={ member_uid } />
+                    <CInput id="member_uid" onChange={(e)=>handle(e)} value={memberDetails.member_name} name="text-input" placeholder="Doe" />
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
@@ -177,7 +190,7 @@ const Table = () => {
                     <CLabel htmlFor="number-input">Id Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Id Number" value={ id_no}></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.id_no} name="number-input" placeholder="Id Number"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -185,7 +198,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Phone Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="0700000000" value ={ tel_no }></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.tel_no} name="number-input" placeholder="0700000000"></CInput>
                     </CCol>
                   </CFormGroup>
             
@@ -194,7 +207,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">NHIF Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="NHIF Number" value = { nhif_no }></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.nhif_no} name="number-input" placeholder="NHIF Number"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -202,7 +215,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">YoB</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="1900"></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.date_of_b} name="number-input" placeholder="1900"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -210,7 +223,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Total Balance</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="1900"></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.total_bal} name="number-input" placeholder="1900"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -218,7 +231,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Inpatient Limit</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="1900" value = {inpatient_bal}></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.inpatient_bal} name="number-input" placeholder="1900"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -226,7 +239,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Out Patient Limit</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="1900" value = { outpatient_bal}></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.outpatient_bal} name="number-input" placeholder="1900"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -234,7 +247,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Card Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Card-Number" value = {member_nbr}></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.member_nbr} name="number-input" placeholder="Card-Number"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -242,7 +255,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Card Status</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Active"></CInput>
+                      <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -250,7 +263,7 @@ const Table = () => {
                     <CLabel htmlFor="select">Role</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                  <CInput id="input-number" name="number-input" placeholder="Active" value = { member_role }></CInput>
+                  <CInput id="input-number" onChange={(e)=>handle(e)} value={memberDetails.member_role} name="number-input" placeholder="Active"></CInput>
                   </CCol>
                 </CFormGroup>
               </CForm>
