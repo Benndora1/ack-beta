@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { Link, Redirect, useHistory, withRouter} from 'react-router-dom'
-// import ack from '../../../img/ack.jpg'
+import ack from '../../../img/ack.jpg'
 import {
   CButton,
   CCard,
@@ -44,7 +44,7 @@ const Login = () => {
   // }
 
   return (
-    <div className="c-app c-default-layout flex-row align-items-center">
+    <div className="c-app c-default-layout flex-row align-items-center" >
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
