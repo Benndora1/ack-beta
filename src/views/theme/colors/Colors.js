@@ -50,7 +50,7 @@ const Table = () => {
   const [modal, setModal] = useState(false)
   // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
-  const [member, setMember] = useState([]);
+  const [memberDetails,setMemberDetails] = useState( "member_uid":'', "id_no": '',"tel_no":'', "nhif_no":'', "nipatient_bal":'',"outpatient_bal":'', "member_nbr":'',"member_role":'');
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -71,12 +71,15 @@ const Table = () => {
   };
 
   const fields = [
-    { key: 'member_name',_style: {width: '22%'}},
-    { key: 'member_nbr', _style: {width: '22%'}},
-    { key: 'id_no', _style: {width: '20%'}},
-    { key: 'total_bal', _style: {width: '20%'}},
-    { key: 'inpatient_bal', _style: {width: '20%'}},
-    { key: 'outpatient_bal', _style: {width: '20%'}},
+    { key: 'member_name',_style: {width: '18%'}},
+    { key: 'member_nbr', _style: {width: '15%'}},
+    { key: 'id_no', _style: {width: '15%'}},
+    { key: 'total_bal', _style: {width: '15%'}},
+    { key: 'inpatient_bal', _style: {width: '15%'}},
+    { key: 'outpatient_bal', _style: {width: '15%'}},
+    {key: 'member_pic'},
+    
+
     // { key: 'status', _style: {width: '20%'}},
     // { key: 'status', _style: {width: '20%'}},
     {
@@ -160,28 +163,13 @@ const Table = () => {
             <CCardBody>
               <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
                 
+                
                 <CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="text-input">First Name</CLabel>
+                    <CLabel htmlFor="text-input">Member Name</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Joe" />
-                  </CCol>
-                </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="text-input">Middle Name</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="John" />
-                  </CCol>
-                  </CFormGroup>
-                <CFormGroup row>
-                  <CCol md="3">
-                    <CLabel htmlFor="text-input">Last Name</CLabel>
-                  </CCol>
-                  <CCol xs="12" md="9">
-                    <CInput id="text-input" name="text-input" placeholder="Doe" />
+                    <CInput id="text-input" name="text-input" placeholder="Doe" value={ member_uid } />
                   </CCol>
                 </CFormGroup>
                 <CFormGroup row>
@@ -189,7 +177,7 @@ const Table = () => {
                     <CLabel htmlFor="number-input">Id Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Id Number"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="Id Number" value={ id_no}></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -197,23 +185,16 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Phone Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="0700000000"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="0700000000" value ={ tel_no }></CInput>
                     </CCol>
                   </CFormGroup>
-                  <CFormGroup row>
-                    <CCol md="3">
-                      <CLabel htmlFor="phone-number">Payroll Number</CLabel>
-                    </CCol>
-                    <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Payroll-number"></CInput>
-                    </CCol>
-                  </CFormGroup>
+            
                   <CFormGroup row>
                     <CCol md="3">
                       <CLabel htmlFor="phone-number">NHIF Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="NHIF Number"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="NHIF Number" value = { nhif_no }></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -226,10 +207,26 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Age</CLabel>
+                      <CLabel htmlFor="phone-number">Total Balance</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="60"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="1900"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Inpatient Limit</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="1900" value = {inpatient_bal}></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Out Patient Limit</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="input-number" name="number-input" placeholder="1900" value = { outpatient_bal}></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -237,7 +234,7 @@ const Table = () => {
                       <CLabel htmlFor="phone-number">Card Number</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
-                      <CInput id="input-number" name="number-input" placeholder="Card-Number"></CInput>
+                      <CInput id="input-number" name="number-input" placeholder="Card-Number" value = {member_nbr}></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -253,16 +250,7 @@ const Table = () => {
                     <CLabel htmlFor="select">Role</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
-                    <CSelect custom name="select" id="select">
-                      <option value="0">Please select Rank</option>
-                      <option value="1">Bishop</option>
-                      <option value="2">Archdeacons</option>
-                      <option value="3">Area Deans</option>             
-                      <option value="1">Clergy</option>
-                      <option value="1">Office children</option>
-                      <option value="1">Chaplains</option>
-                      <option value="1">Evangelists</option>
-                    </CSelect>
+                  <CInput id="input-number" name="number-input" placeholder="Active" value = { member_role }></CInput>
                   </CCol>
                 </CFormGroup>
               </CForm>
