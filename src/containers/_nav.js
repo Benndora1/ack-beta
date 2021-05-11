@@ -68,7 +68,7 @@ const _nav =  [
     // _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Roles',
+        name: 'Medical Schemes',
         to: '/base/breadcrumbs',
         icon: 'cil-user',
       },
