@@ -23,7 +23,7 @@ import CIcon from '@coreui/icons-react'
 // import { DocsLink } from 'src/reusable'
 import Amplify,{API} from 'aws-amplify';
 import config from '../../../config';
-
+import axios from 'axios';
 
 
 Amplify.configure({
@@ -71,12 +71,12 @@ const Table = () => {
   };
 
   const fields = [
-    { key: 'member_uid',_style: {width: '22%'}},
-    { key: 'patient_type', _style: {width: '22%'}},
-    { key: 'member_name', _style: {width: '20%'}},
-    { key: 'member_nbr', _style: {width: '20%'}},
+    { key: 'member_name',_style: {width: '22%'}},
+    { key: 'member_nbr', _style: {width: '22%'}},
     { key: 'id_no', _style: {width: '20%'}},
     { key: 'total_bal', _style: {width: '20%'}},
+    { key: 'inpatient_bal', _style: {width: '20%'}},
+    { key: 'outpatient_bal', _style: {width: '20%'}},
     // { key: 'status', _style: {width: '20%'}},
     // { key: 'status', _style: {width: '20%'}},
     {
@@ -123,14 +123,13 @@ const Table = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch('g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
-    .then(function (data) {
-        data.json().then((json) => {
-          console.log(json);
-          setMembers(json.members);
-          setPages(json.pages);
+    axios.get('https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
+    .then((res)=> {
+          console.log(res.data);
+          setMembers(res.data);
+          setPages(pages);
           setLoading(false);
-        });
+        
       })
       .catch((e) => {
         // wait for code sandbox server to unhibernate
