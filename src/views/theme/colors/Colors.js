@@ -50,7 +50,7 @@ const Table = () => {
   const [modal, setModal] = useState(false)
   // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
-  const [memberDetails,setMemberDetails] = useState( "member_uid":'', "id_no": '',"tel_no":'', "nhif_no":'', "nipatient_bal":'',"outpatient_bal":'', "member_nbr":'',"member_role":'');
+  // const [memberDetails,setMemberDetails] = useState( {"member_uid":'', "id_no": '',"tel_no":'', "nhif_no":'', "inpatient_bal":'',"outpatient_bal":'', "member_nbr":'',"member_role":''});
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
