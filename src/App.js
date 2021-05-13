@@ -33,11 +33,11 @@ class App extends Component {
         <BrowserRouter>
           <React.Suspense fallback={loading}>
             <Switch>
-              <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
+              <Route edxact path="/login" name="Login Page" render={props => <Login {...props}/>} />
               <ProtectedRoute exact path="/register" name="Register Page" render={props => <Register {...props}/>} />
               <ProtectedRoute exact path="/404" name="Page 404" render={props => <Page404 {...props}/>} />
               <ProtectedRoute exact path="/500" name="Page 500" render={props => <Page500 {...props}/>} />
-              <ProtectedRoute path="/" name="Home" render={props => <TheLayout {...props}/>} />
+              <Route  path="/" name="Home" render={props => <TheLayout {...props}/>} />
             </Switch>
           </React.Suspense>
         </BrowserRouter>
