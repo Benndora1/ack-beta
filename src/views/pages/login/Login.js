@@ -18,6 +18,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import {AuthContext} from '../../../Auth'
 
+
 const Login = () => {
   let history = useHistory();
   const[email,setEmail]=useState('');
@@ -37,6 +38,7 @@ const Login = () => {
         console.error('Login Failed!', err)
       })
   }
+  const styleBac ={ backgroundImage: "url('./img/a.jpg')"};
 
 
   // if (currentUser) {
@@ -44,8 +46,8 @@ const Login = () => {
   // }
 
   return (
-    <div className="c-app c-default-layout flex-row align-items-center" >
-      <CContainer>
+      <div className="c-app c-default-layout flex-row align-items-center" style= {styleBac}>
+        <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
             <CCardGroup>

@@ -89,7 +89,7 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
-    {key: 'member_pic'},
+    // {key: 'member_pic'},
     
 
     // { key: 'status', _style: {width: '20%'}},
@@ -234,7 +234,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Inpatient Limit</CLabel>
+                      <CLabel htmlFor="phone-number">In-patient Limit</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="inpatient_bal" onChange={(e)=>handle(e)} value={memberDetails.inpatient_bal} name="number-input" placeholder="1900"></CInput>
@@ -242,7 +242,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                     <CCol md="3">
-                      <CLabel htmlFor="phone-number">Out Patient Limit</CLabel>
+                      <CLabel htmlFor="phone-number">Out-Patient Limit</CLabel>
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="outpatient_bal" onChange={(e)=>handle(e)} value={memberDetails.outpatient_bal} name="number-input" placeholder="1900"></CInput>
@@ -266,7 +266,7 @@ const Table = () => {
                   </CFormGroup>
                   <CFormGroup row>
                   <CCol md="3">
-                    <CLabel htmlFor="select">Role</CLabel>
+                    <CLabel htmlFor="select">Rank</CLabel>
                   </CCol>
                   <CCol xs="12" md="9">
                   <CInput id="member_role" onChange={(e)=>handle(e)} value={memberDetails.member_role} name="number-input" placeholder="Active"></CInput>
@@ -305,14 +305,14 @@ const Table = () => {
                 sorter
                 pagination
                 scopedSlots = {{
-                  // 'status':
-                  //   (member)=>(
-                  //     <td>
-                  //       <CBadge color={getBadge(member.status)}>
-                  //         {member.status}
-                  //       </CBadge>
-                  //     </td>
-                  //   ),
+                  'status':
+                    (member)=>(
+                      <td>
+                        <CBadge color={getBadge(member.status)}>
+                          {member.status}
+                        </CBadge>
+                      </td>
+                    ),
                   'show_details':
                     (item, index)=>{
                       return (
@@ -334,8 +334,8 @@ const Table = () => {
                         return (
                           <CCollapse show={details.includes(index)}>
                 <CCardBody>
-                  <h4>
-                    {members.memeber_id}
+                <h4>
+                    {item.username}
                   </h4>
                   <p className="text-muted">Member Details</p>
                   <CButton size="sm" color="info">
