@@ -1,17 +1,24 @@
 import React, { useContext} from 'react';
-import {Route,Redirect} from 'react-router-dom';
+import {Route,Redirect,withRouter} from 'react-router-dom';
 import {AuthContext} from './Auth'
 
-export default function ProtectedRoute(children, ...rest){
+const ProtectedRoute=({component:RouteComponent, ...rest})=>{
     const { currentUser }=useContext(AuthContext);
 
     return(
         
         <Route
-        {...rest}
-        render={()=> currentUser ? children : <Redirect to='/login'/>}>
-            
-        </Route>
+            {...rest}
+            render={routeProps =>
+              !!currentUser ? (
+                //   children
+                <RouteComponent {...routeProps}/>
+            ) :( 
+                <Redirect to={'/login'}/>
+            )
+            } 
+        />
 
     );
-}
+};
+export default withRouter(ProtectedRoute);

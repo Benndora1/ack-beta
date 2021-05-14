@@ -22,7 +22,6 @@ import {
 import CIcon from '@coreui/icons-react'
 // import { DocsLink } from 'src/reusable'
 import Amplify,{API} from 'aws-amplify';
-import config from '../../../config';
 import axios from 'axios';
 
 
@@ -41,8 +40,8 @@ Amplify.configure({
         ]
     }
 });
-Amplify.configure(config);
-API.configure(config);
+// Amplify.configure(config);
+// API.configure(config);
 //children
 
 const Table = () => { 
