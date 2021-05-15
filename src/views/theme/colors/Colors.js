@@ -43,7 +43,6 @@ Amplify.configure({
 });
 Amplify.configure(config);
 API.configure(config);
-//children
 
 const Table = () => { 
 
@@ -89,11 +88,6 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
-    // {key: 'member_pic'},
-    
-
-    // { key: 'status', _style: {width: '20%'}},
-    // { key: 'status', _style: {width: '20%'}},
     {
       key: 'show_details',
       // label: "",
@@ -101,19 +95,11 @@ const Table = () => {
       sorter: false,
       filter: false
     }
-    // { key: 'lname', _style: {width: '40%'}},
-
-
-
-    
-    // "id_nbr","rank","nhif","status","show_details"
   ]
   const getBadge = (status)=>{
     switch (status) {
       case 'Active': return 'success'
       case 'Inactive': return 'secondary'
-      // case 'Pending': return 'warning'
-      // case 'Banned': return 'danger'
       default: return 'primary'
     }
   }
@@ -136,13 +122,6 @@ const Table = () => {
     }
     setDetails(newDetails)
   }
-  // const fetchMembers = async ()=>{
-  //   try{
-  //     const mbrData = await API.get('memberApi','/members/member_id');
-  //     console.log(mbrData);
-  //   }catch(error){}
-  // }
-
   useEffect(()=>{
     setLoading(true)
     axios.get('https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
@@ -154,15 +133,11 @@ const Table = () => {
         
       })
       .catch((e) => {
-        // wait for code sandbox server to unhibernate
         setTimeout(() => {
           setFetchTrigger(fetchTrigger + 1);
         }, 2000);
       });
   }, [fetchTrigger]);
-   
-    // API.get('memberApi','/members/member_id')
-    // .then(res=>console.log(res)); 
 
   return (
     <>
@@ -274,18 +249,11 @@ const Table = () => {
                 </CFormGroup>
               </CForm>
             </CCardBody>
-            {/* <CCardFooter>
-              <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
-              <CButton type="reset" size="sm" color="danger"><CIcon name="cil-ban" /> Reset</CButton>
-            </CCardFooter> */}
+           
           </CCard>
                 </CModalBody>
               <CModalFooter>
-                {/* <CButton color="primary">Do Something</CButton>{' '}
-                <CButton 
-                  color="secondary" 
-                  onClick={() => setModal(false)}
-                >Cancel</CButton> */}
+
                 <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
               <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
               </CModalFooter>
@@ -314,7 +282,7 @@ const Table = () => {
                       </td>
                     ),
                   'show_details':
-                    (item, index)=>{
+                    (members, index)=>{
                       return (
                         <td className="py-2">
                           <CButton
@@ -335,7 +303,7 @@ const Table = () => {
                           <CCollapse show={details.includes(index)}>
                 <CCardBody>
                 <h4>
-                    {item.username}
+                    {memberDetails.member_name}
                   </h4>
                   <p className="text-muted">Member Details</p>
                   <CButton size="sm" color="info">
@@ -351,12 +319,7 @@ const Table = () => {
                     }
                 }}
                 />
-            {/* <CPagination
-                pages={pages}
-                activePage={page}
-                onActivePageChange={setPage}
-                className={pages < 2 ? "d-none" : ""}
-              /> */}
+          
             </CCard>  
      
             </>

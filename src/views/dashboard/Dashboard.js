@@ -200,55 +200,6 @@ const Dashboard = () => {
 
                 <CCol xs="12" md="6" xl="6">
 
-                  {/* <CRow>
-                    <CCol sm="6">
-                      <CCallout color="warning">
-                        <small className="text-muted">Pageviews</small>
-                        <br />
-                        <strong className="h4">78,623</strong>
-                      </CCallout>
-                    </CCol>
-                    <CCol sm="6">
-                      <CCallout color="success">
-                        <small className="text-muted">Organic</small>
-                        <br />
-                        <strong className="h4">49,123</strong>
-                      </CCallout>
-                    </CCol>
-                  </CRow> */}
-
-                  {/* <hr className="mt-0" />
-
-                  <div className="progress-group mb-4">
-                    <div className="progress-group-header">
-                      <CIcon className="progress-group-icon" name="cil-user" />
-                      <span className="title">Male</span>
-                      <span className="ml-auto font-weight-bold">43%</span>
-                    </div>
-                    <div className="progress-group-bars">
-                      <CProgress className="progress-xs" color="warning" value="43" />
-                    </div>
-                  </div>
-                  <div className="progress-group mb-5">
-                    <div className="progress-group-header">
-                      <CIcon className="progress-group-icon" name="cil-user-female" />
-                      <span className="title">Female</span>
-                      <span className="ml-auto font-weight-bold">37%</span>
-                    </div>
-                    <div className="progress-group-bars">
-                      <CProgress className="progress-xs" color="warning" value="37" />
-                    </div>
-                  </div>
-                  <div className="progress-group">
-                    <div className="progress-group-header">
-                      <CIcon className="progress-group-icon" name="cil-globe-alt" />
-                      <span className="title">Organic Search</span>
-                      <span className="ml-auto font-weight-bold">191,235 <span className="text-muted small">(56%)</span></span>
-                    </div>
-                    <div className="progress-group-bars">
-                      <CProgress className="progress-xs" color="success" value="56" />
-                    </div>
-                  </div> */}
 
 
                   <div className="progress-group">
@@ -314,13 +265,8 @@ const Dashboard = () => {
                     <td>
                       <div>FRANCIS GITERU WAWERU</div>
                       <div className="small text-muted">
-                        {/* <span>New</span> | Registered: Jan 1, 2015 */}
                       </div>
-                    </td>
-                    {/* <td className="text-center">
-                      <CIcon height={25} name="cif-us" title="us" id="us" />
-                    </td> */}
-                    <td>
+                    
                       <div className="clearfix">
                         <div className="float-left">
                           <strong>50%</strong>
