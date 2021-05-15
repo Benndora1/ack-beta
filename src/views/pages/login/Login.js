@@ -38,7 +38,7 @@ const Login = () => {
         console.error('Login Failed!', err)
       })
   }
-  const styleBac ={ backgroundImage: "url('./img/a.jpg')"};
+  const styleBac ={ backgroundImage: "url('../../../img/a.jpg')"};
 
 
   // if (currentUser) {
