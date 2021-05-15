@@ -31,7 +31,7 @@ Amplify.configure({
         endpoints: [
             {
                 name: "medicare-stack",
-                endpoint: "g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
+                endpoint: "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values"
             },
             // {
             //     name: "MyCustomCloudFrontApi",
@@ -76,7 +76,7 @@ const Table = () => {
     {key: 'hospital_id', stle: {width: '15%'}},
     {key: 'hospital_name', stle: {width: '15%'}},
     {key: 'transaction_token', style: {width: '14%'}},
-    { key: 'total_bal', _style: {width: '15%'}},
+    // { key: 'total_bal', _style: {width: '15%'}},
     {key: 'member_charge', style:{width:'16%'}},
     {key: 'date_time', style:{width: '15%'}},
     // {key: 'member_pic'},
@@ -113,7 +113,7 @@ const Table = () => {
   //   newMember[e.target.id]=e.target.value 
   //   setMemberDetails(newMember)
     
-   }
+   
 
   
   const toggleDetails = (index) => {
@@ -135,7 +135,7 @@ const Table = () => {
 
   useEffect(()=>{
     setLoading(true)
-    axios.get('https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/')
+    axios.get('https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values')
     .then((res)=> {
           console.log(res.data);
           setMembers(res.data);
@@ -178,7 +178,7 @@ const Table = () => {
      
             </>
             )
-};
+  };
 
 
 export default Table;
