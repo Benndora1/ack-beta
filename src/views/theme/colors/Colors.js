@@ -335,7 +335,7 @@ const Table = () => {
                           <CCollapse show={details.includes(index)}>
                 <CCardBody>
                 <h4>
-                    {item.username}
+                    {members.member_uid}
                   </h4>
                   <p className="text-muted">Member Details</p>
                   <CButton size="sm" color="info">

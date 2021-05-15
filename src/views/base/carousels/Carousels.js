@@ -108,12 +108,12 @@ const Table = () => {
     }
   }
   
-  const handle = (e) =>{
-    const newMember = {...memberDetails}
-    newMember[e.target.id]=e.target.value 
-    setMemberDetails(newMember)
+  // const handle = (e) =>{
+  //   const newMember = {...memberDetails}
+  //   newMember[e.target.id]=e.target.value 
+  //   setMemberDetails(newMember)
     
-  }
+   }
 
   
   const toggleDetails = (index) => {
