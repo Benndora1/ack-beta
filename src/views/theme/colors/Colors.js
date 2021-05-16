@@ -88,7 +88,7 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
-    {key: 'member_pic'},
+    {key: 'member_status', _style:{width:'15%'}},
     
 
     // { key: 'status', _style: {width: '20%'}},
@@ -121,8 +121,29 @@ const Table = () => {
     const newMember = {...memberDetails}
     newMember[e.target.id]=e.target.value 
     setMemberDetails(newMember)
+    console.log(newMember)
     
   }
+   const handleSubmit = ()=>{
+     const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values";
+     axios.post(url,{
+      "member_name":memberDetails.member_name,
+      "member_nbr": memberDetails.member_nbr,
+      "id_no":memberDetails.id_no,
+      "date_of_b":memberDetails.date_of_b,
+      "tel_no":memberDetails.tel_no,
+      "nhif_no":memberDetails.nhif_no,
+      "member_role":memberDetails.member_role,
+      "total_bal":memberDetails.total_bal,
+      "inpatient_bal":memberDetails.inpatient_bal,
+      "outpatient_bal":memberDetails.outpatient_bal,
+      "card_status":memberDetails.card_status
+     }).then(res=>{
+       console.log(res.data)
+     }).catch(error=>{
+       console.log(error)
+     })
+   }
 
   
   const toggleDetails = (index) => {
@@ -179,7 +200,7 @@ const Table = () => {
               <CModalBody>
               <CCard>
             <CCardBody>
-              <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
+              <CForm action="" onSubmit={e=>e.preventDefault() && false} method="post" encType="multipart/form-data" className="form-horizontal">
                 
                 
                 <CFormGroup row>
@@ -285,7 +306,7 @@ const Table = () => {
                   color="secondary" 
                   onClick={() => setModal(false)}
                 >Cancel</CButton> */}
-                <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+                <CButton type="submit" size="sm" color="primary" onClick={handleSubmit}><CIcon name="cil-scrubber" /> Submit</CButton>
               <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
               </CModalFooter>
             </CModal>                
@@ -313,7 +334,7 @@ const Table = () => {
                   //     </td>
                   //   ),
                   'show_details':
-                    (item, index)=>{
+                    (member, index)=>{
                       return (
                         <td className="py-2">
                           <CButton

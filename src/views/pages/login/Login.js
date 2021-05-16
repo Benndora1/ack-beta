@@ -46,7 +46,7 @@ const Login = (props) => {
   const handleLogin = async(e) =>{
     // e.preventDefault();
     try{
-      await app.auth().signInWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password);
       history.push('/');
       // clearData();
     }catch(err){
@@ -66,8 +66,8 @@ const Login = (props) => {
 
   const {currentUser} = useContext(AuthContext);
   
-  if (currentUser) {
-    <Redirect to="/"/>;
+  if (currentUser){
+    <Redirect to='/'/>
   }
 
   return (
