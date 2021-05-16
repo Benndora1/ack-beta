@@ -328,10 +328,7 @@ const Table = () => {
                       (members, index)=>{
                         return (
                           <CCollapse show={details.includes(index)}>
-                            <CCardBody>
-                            <p className="text-muted">Member Details</p>
-
-                                <CButton color="infor"
+                            <CCardBody>                               <CButton color="infor"
                               onClick={() => setModal(!modal)} 
                                   className="mr-2"
                                           >Edit Member</CButton>
@@ -345,7 +342,7 @@ const Table = () => {
                                             <CModalBody>
                                             <CCard>
                                           <CCardBody>
-                                            <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                                            <CForm action="" method="patch" encType="multipart/form-data" className="form-horizontal">
 
                                               <CFormGroup row>
                                                 <CCol md="3">
