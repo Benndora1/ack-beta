@@ -240,6 +240,22 @@ const Table = () => {
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Dependancy</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.dependancy} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Card Status</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="select">Rank</CLabel>
                   </CCol>
@@ -274,15 +290,15 @@ const Table = () => {
                 pagination
                 scopedSlots = {{
                   'status':
-                    (member)=>(
+                    (members)=>(
                       <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {member.status}
+                        <CBadge color={getBadge(members.status)}>
+                          {members.card_status}
                         </CBadge>
                       </td>
                     ),
                   'show_details':
-                    (members, index)=>{
+                    (_members, index)=>{
                       return (
                         <td className="py-2">
                           <CButton
@@ -298,7 +314,7 @@ const Table = () => {
                         )
                     },
                   'details':
-                      (member, index)=>{
+                      (members, index)=>{
                         return (
                           <CCollapse show={details.includes(index)}>
                 <CCardBody>
