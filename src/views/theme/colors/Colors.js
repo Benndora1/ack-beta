@@ -88,6 +88,7 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
+    { key: 'card_status', _style: {width: '15%'}},
     {
       key: 'show_details',
       // label: "",
@@ -274,10 +275,10 @@ const Table = () => {
                 pagination
                 scopedSlots = {{
                   'status':
-                    (member)=>(
+                    (members)=>(
                       <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {member.status}
+                        <CBadge color={getBadge(members.card_status)}>
+                          {members.status}
                         </CBadge>
                       </td>
                     ),
