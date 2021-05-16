@@ -88,6 +88,7 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
+    { key: 'card_status', _style: {width: '15%'}},
     {
       key: 'show_details',
       // label: "",
@@ -276,8 +277,13 @@ const Table = () => {
                   'status':
                     (members)=>(
                       <td>
+<<<<<<< HEAD
                         <CBadge color={getBadge(members.status)}>
                           {members.card_status}
+=======
+                        <CBadge color={getBadge(members.card_status)}>
+                          {members.status}
+>>>>>>> 8e32363ea932e748385a4d53c5093a40044c0fa9
                         </CBadge>
                       </td>
                     ),

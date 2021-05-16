@@ -46,7 +46,7 @@ const Login = () => {
   // }
 
   return (
-      <div className="c-app c-default-layout flex-row align-items-center" style= {styleBac}>
+      <div className="c-app c-default-layout flex-row align-items-center" style={{backgroundImage:""}}>
         <CContainer>
         <CRow className="justify-content-center">
           <CCol md="8">
