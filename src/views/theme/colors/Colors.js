@@ -70,7 +70,9 @@ const Table = () => {
       "total_bal":'',
       "inpatient_bal":'',
       "outpatient_bal":'',
-      "card_status":''
+      "card_status":'',
+      "charge_id":'',
+      "dependancy":''
   });
     
   const params = {
@@ -245,6 +247,14 @@ const Table = () => {
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.dependancy} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Charge Member</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.charge_id} name="number-input" placeholder="Active"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
