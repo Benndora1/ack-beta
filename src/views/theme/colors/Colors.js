@@ -90,9 +90,10 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
-    {
-      key: 'show_details',
+    { key: 'status', _style: { width: '20%'} },   
+     {key: 'show_details',
       // label: "",
+    
       _style: { width: '1%' },
       sorter: false,
       filter: false
