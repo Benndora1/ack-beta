@@ -70,7 +70,9 @@ const Table = () => {
       "total_bal":'',
       "inpatient_bal":'',
       "outpatient_bal":'',
-      "card_status":''
+      "card_status":'',
+      "charge_id":'',
+      "dependancy":''
   });
     
   const params = {
@@ -88,14 +90,10 @@ const Table = () => {
     { key: 'total_bal', _style: {width: '15%'}},
     { key: 'inpatient_bal', _style: {width: '15%'}},
     { key: 'outpatient_bal', _style: {width: '15%'}},
-    {key: 'member_status', _style:{width:'15%'}},
+    { key: 'status', _style: { width: '20%'}},   
+    {key: 'show_details',
+      label: "",
     
-
-    // { key: 'status', _style: {width: '20%'}},
-    // { key: 'status', _style: {width: '20%'}},
-    {
-      key: 'show_details',
-      // label: "",
       _style: { width: '1%' },
       sorter: false,
       filter: false
@@ -139,12 +137,12 @@ const Table = () => {
 
   
   const toggleDetails = (index) => {
-    const position = details.indexOf(members)
+    const position = details.indexOf(index)
     let newDetails = details.slice()
     if (position !== -1) {
       newDetails.splice(position, 1)
     } else {
-      newDetails = [...details, members]
+      newDetails = [...details, index]
     }
     setDetails(newDetails)
   }
@@ -164,6 +162,7 @@ const Table = () => {
         }, 2000);
       });
   }, [fetchTrigger]);
+  
 
   return (
     <>
@@ -266,6 +265,30 @@ const Table = () => {
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Dependancy</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.dependancy} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Charge Member</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.charge_id} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
+                    <CCol md="3">
+                      <CLabel htmlFor="phone-number">Card Status</CLabel>
+                    </CCol>
+                    <CCol xs="12" md="9">
+                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
+                    </CCol>
+                  </CFormGroup>
+                  <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="select">Rank</CLabel>
                   </CCol>
@@ -306,8 +329,8 @@ const Table = () => {
                   'status':
                     (members)=>(
                       <td>
-                        <CBadge color={getBadge(members.card_status)}>
-                          {members.status}
+                        <CBadge color={getBadge(members.status)}>
+                          {members.card_status}
                         </CBadge>
                       </td>
                     ),
@@ -328,23 +351,158 @@ const Table = () => {
                         )
                     },
                   'details':
-                      (member, index)=>{
+                      (members, index)=>{
                         return (
                           <CCollapse show={details.includes(index)}>
-                <CCardBody>
-                <h4>
-                    {members.member_uid}
-                  </h4>
-                  <p className="text-muted">Member Details</p>
-                  <CButton size="sm" color="info">
-                    User Settings
-                  </CButton>
-                  <CButton size="sm" color="danger" className="ml-1">
-                    Delete
-                  </CButton>
-                </CCardBody>
-              </CCollapse>
-                    
+                            <CCardBody>
+                            <p className="text-muted">Member Details</p>
+
+                                <CButton color="infor"
+                              onClick={() => setModal(!modal)} 
+                                  className="mr-2"
+                                          >Edit Member</CButton>
+                                          <CModal 
+                                            show={modal} 
+                                            onClose={setModal}
+                                          >
+                                            <CModalHeader closeButton>
+                                              <CModalTitle>Member Details</CModalTitle>
+                                            </CModalHeader>
+                                            <CModalBody>
+                                            <CCard>
+                                          <CCardBody>
+                                            <CForm action="" method="post" encType="multipart/form-data" className="form-horizontal">
+
+                                              <CFormGroup row>
+                                                <CCol md="3">
+                                                  <CLabel htmlFor="text-input">Member Name</CLabel>
+                                                </CCol>
+                                                <CCol xs="12" md="9">
+                                                  <CInput id="member_name" onChange={(e)=>handle(e)} value={memberDetails.member_name} name="text-input" placeholder="Doe" />
+                                                </CCol>
+                                              </CFormGroup>
+                                              <CFormGroup row>
+                                                <CCol md="3">
+                                                  <CLabel htmlFor="number-input">Id Number</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="id_no" onChange={(e)=>handle(e)} value={memberDetails.id_no} name="number-input" placeholder="Id Number"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Phone Number</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="tel_no" onChange={(e)=>handle(e)} value={memberDetails.tel_no} name="number-input" placeholder="0700000000"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                          
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">NHIF Number</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="nhif_no" onChange={(e)=>handle(e)} value={memberDetails.nhif_no} name="number-input" placeholder="NHIF Number"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">YoB</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="date_of_b" onChange={(e)=>handle(e)} value={memberDetails.date_of_b} name="number-input" placeholder="1900"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Total Balance</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="total_bal" onChange={(e)=>handle(e)} value={memberDetails.total_bal} name="number-input" placeholder="1900"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">In-patient Limit</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="inpatient_bal" onChange={(e)=>handle(e)} value={memberDetails.inpatient_bal} name="number-input" placeholder="1900"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Out-Patient Limit</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="outpatient_bal" onChange={(e)=>handle(e)} value={memberDetails.outpatient_bal} name="number-input" placeholder="1900"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Card Number</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="member_nbr" onChange={(e)=>handle(e)} value={memberDetails.member_nbr} name="number-input" placeholder="Card-Number"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Card Status</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Dependancy</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.dependancy} name="number-input" placeholder="Active"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Charge Member</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.charge_id} name="number-input" placeholder="Active"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                  <CCol md="3">
+                                                    <CLabel htmlFor="phone-number">Card Status</CLabel>
+                                                  </CCol>
+                                                  <CCol xs="12" md="9">
+                                                    <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
+                                                  </CCol>
+                                                </CFormGroup>
+                                                <CFormGroup row>
+                                                <CCol md="3">
+                                                  <CLabel htmlFor="select">Rank</CLabel>
+                                                </CCol>
+                                                <CCol xs="12" md="9">
+                                                <CInput id="member_role" onChange={(e)=>handle(e)} value={memberDetails.member_role} name="number-input" placeholder="Active"></CInput>
+                                                </CCol>
+                                              </CFormGroup>
+                                            </CForm>
+                                          </CCardBody>
+                                        
+                                        </CCard>
+                                              </CModalBody>
+                                            <CModalFooter>
+                                              <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+                                            <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
+                                            </CModalFooter>
+                                          </CModal> 
+                                          <br/>       
+                                <CButton size="sm" color="danger" className="ml-1">
+                                  Delete Member
+                                </CButton>
+                              </CCardBody>
+                            </CCollapse>
+
                       )
                     }
                 }}
