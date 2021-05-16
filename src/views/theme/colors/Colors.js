@@ -354,7 +354,8 @@ const Table = () => {
                       (members, index)=>{
                         return (
                           <CCollapse show={details.includes(index)}>
-                            <CCardBody>                               <CButton color="infor"
+                            <CCardBody>                             
+                                <CButton color="info"
                               onClick={() => setModal(!modal)} 
                                   className="mr-2"
                                           >Edit Member</CButton>
