@@ -8,7 +8,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { icons } from './assets/icons'
-import 'react-simple-hook-modal/dist/styles.css';
+// import 'react-simple-hook-modal/dist/styles.css';
 
 
 import { Provider } from 'react-redux'
