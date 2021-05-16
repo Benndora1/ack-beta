@@ -274,15 +274,15 @@ const Table = () => {
                 pagination
                 scopedSlots = {{
                   'status':
-                    (member)=>(
+                    (members)=>(
                       <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {member.status}
+                        <CBadge color={getBadge(members.status)}>
+                          {members.card_status}
                         </CBadge>
                       </td>
                     ),
                   'show_details':
-                    (members, index)=>{
+                    (_members, index)=>{
                       return (
                         <td className="py-2">
                           <CButton
