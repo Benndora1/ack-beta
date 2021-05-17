@@ -84,8 +84,5 @@
       "!src/polyfill.js"
     ]
   },
-  "engines": {
-    "node": ">=12.13.0",
-    "npm": ">=6"    
-  }
+"engines": { "node": "12.13.0"},
 }
