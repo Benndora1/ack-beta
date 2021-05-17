@@ -103,7 +103,7 @@ const Table = () => {
     switch (status) {
       case 'Active': return 'success'
       case 'Inactive': return 'secondary'
-      default: return 'primary'
+      default: return 'success'
     }
   }
   
@@ -114,7 +114,7 @@ const Table = () => {
     console.log(newMember)
     
   }
-   const handleSubmit = ()=>{
+  const handleSubmit = ()=>{
      const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values";
      axios.post(url,{
       "member_name":memberDetails.member_name,
@@ -133,7 +133,22 @@ const Table = () => {
      }).catch(error=>{
        console.log(error)
      })
-   }
+  }
+  const handleDelete = async(id)=>{
+    const url = 'https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/';
+    await axios.delete(`url${id}`);
+    const newMemberList = members.filter((member)=>{
+      return member.member_uid!==id
+    });
+    setMembers(newMemberList);
+  }
+
+  const handleUpdate = (id,val)=>{
+    const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values/g"
+    axios.patch(`url${id}`,{val})
+  }
+
+
 
   
   const toggleDetails = (index) => {
@@ -490,12 +505,12 @@ const Table = () => {
                                         </CCard>
                                               </CModalBody>
                                             <CModalFooter>
-                                              <CButton type="submit" size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
+                                              <CButton type="submit" onClick={()=>{handleUpdate()}} size="sm" color="primary"><CIcon name="cil-scrubber" /> Submit</CButton>
                                             <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
                                             </CModalFooter>
                                           </CModal> 
                                           <br/>       
-                                <CButton size="sm" color="danger" className="ml-1">
+                                <CButton onClick={e=>window.confirm("Are you sure?") && handleDelete(members.member_uid)} size="sm" color="danger" className="ml-1">
                                   Delete Member
                                 </CButton>
                               </CCardBody>
