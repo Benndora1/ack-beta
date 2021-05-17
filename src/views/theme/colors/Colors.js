@@ -152,7 +152,8 @@ const Table = () => {
       "inpatient_bal":memberDetails.inpatient_bal,
       "outpatient_bal":memberDetails.outpatient_bal,
       "card_status":memberDetails.card_status,
-      "charge_id":memberDetails.charge_id
+      "charge_id":memberDetails.charge_id,
+      "dependancy":memberDetails.dependancy
      }).then(res=>{
        console.log(res.data)
      }).catch(error=>{
@@ -306,14 +307,6 @@ const Table = () => {
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="member_nbr" onChange={(e)=>handle(e)} value={memberDetails.member_nbr} name="number-input" placeholder="Card-Number"></CInput>
-                    </CCol>
-                  </CFormGroup>
-                  <CFormGroup row>
-                    <CCol md="3">
-                      <CLabel htmlFor="phone-number">Card Status</CLabel>
-                    </CCol>
-                    <CCol xs="12" md="9">
-                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
