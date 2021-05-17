@@ -151,7 +151,8 @@ const Table = () => {
       "total_bal":memberDetails.total_bal,
       "inpatient_bal":memberDetails.inpatient_bal,
       "outpatient_bal":memberDetails.outpatient_bal,
-      "card_status":memberDetails.card_status
+      "card_status":memberDetails.card_status,
+      "charge_id":memberDetails.charge_id
      }).then(res=>{
        console.log(res.data)
      }).catch(error=>{
