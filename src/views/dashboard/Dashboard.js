@@ -247,7 +247,7 @@ const Dashboard = () => {
                 <thead className="thead-light">
                   <tr>
                     <th className="text-center"><CIcon name="cil-people" /></th>
-                    <th>Member</th>
+                    <th>Member</th> 
                     {/* <th className="text-center">Country</th> */}
                     <th>Usage</th>
                     <th className="text-center">Total balance</th>
@@ -258,7 +258,7 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'https://ackstaff-photos.s3.us-east-2.amazonaws.com/Rural+Deans/Revd_Francis_Waweru_Giteru.JPG'}  alt="admin@bootstrapmaster.com" />
+                        <img src={'https://ackstaff-photos.s3.us-east-2.amazonaws.com/Rural+Deans/Revd_Francis_Waweru_Giteru.JPG'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
                         <span className="c-avatar-status bg-success"></span>
                       </div>
                     </td>

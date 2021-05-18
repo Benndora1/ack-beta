@@ -7,7 +7,6 @@ import {
   CDataTable,
   CBadge,
   CCollapse,
-  CSelect,
   CForm,
   CLabel,
   CInput,
@@ -51,12 +50,12 @@ const Table = () => {
   const [members,setMembers] = useState([]);
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [pages, setPages] = useState(5);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-  const [columnFilterValue, setColumnFilterValue] = useState();
-  const [tableFilterValue, setTableFilterValue] = useState("");
-  const [sorterValue, setSorterValue] = useState();
+  const [itemsPerPage] = useState(5);
+  const [columnFilterValue] = useState();
+  const [tableFilterValue] = useState("");
+  const [sorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
   const [memberDetails,setMemberDetails] = useState({
@@ -498,14 +497,14 @@ const Table = () => {
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={members.card_status} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
-                                                <CFormGroup row>
+                                                {/* <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Dependancy</CLabel>
                                                   </CCol>
                                                   <CCol xs="12" md="9">
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={members.dependancy} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
-                                                </CFormGroup>
+                                                </CFormGroup> */}
                                                 <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Charge Member</CLabel>
@@ -514,14 +513,7 @@ const Table = () => {
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={members.charge_id} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
-                                                <CFormGroup row>
-                                                  <CCol md="3">
-                                                    <CLabel htmlFor="phone-number">Card Status</CLabel>
-                                                  </CCol>
-                                                  <CCol xs="12" md="9">
-                                                    <CInput id="card_status" onChange={(e)=>update(e)} value={members.card_status} name="number-input" placeholder="Active"></CInput>
-                                                  </CCol>
-                                                </CFormGroup>
+                                               
                                                 <CFormGroup row>
                                                 <CCol md="3">
                                                   <CLabel htmlFor="select">Rank</CLabel>

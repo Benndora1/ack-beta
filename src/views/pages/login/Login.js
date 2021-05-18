@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Link, Redirect, useHistory, withRouter} from 'react-router-dom'
-import ack from '../../../img/ack.jpg'
+import {Redirect, useHistory, withRouter} from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -52,16 +51,7 @@ const Login = (props) => {
     }catch(err){
       console.log(err)
     }
-    
-      // .then(data =>{
-      //   console.log('Logged in!', data)
-      //   history.push("/")
-      // })
-      // .catch(err =>{
-      //   console.error('Login Failed!', err)
-      // })
-      
-  }
+    }
   
 
   const {currentUser} = useContext(AuthContext);
