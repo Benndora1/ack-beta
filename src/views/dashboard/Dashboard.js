@@ -258,7 +258,7 @@ const Dashboard = () => {
                   <tr>
                     <td className="text-center">
                       <div className="c-avatar">
-                        <img src={'https://ackstaff-photos.s3.us-east-2.amazonaws.com/Rural+Deans/Revd_Francis_Waweru_Giteru.JPG'} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+                        <img src={'https://ackstaff-photos.s3.us-east-2.amazonaws.com/Rural+Deans/Revd_Francis_Waweru_Giteru.JPG'}  alt="admin@bootstrapmaster.com" />
                         <span className="c-avatar-status bg-success"></span>
                       </div>
                     </td>

@@ -46,3 +46,8 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 .vscode/settings.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

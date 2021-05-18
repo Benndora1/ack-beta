@@ -15,7 +15,7 @@
     }
   ],
   "homepage": ".",
-  "copyright": "Copyright 2017-2020 creativeLabs £ukasz Holeczek",
+  "copyright": "Copyright 2017-2020 creativeLabs ï¿½ukasz Holeczek",
   "license": "MIT",
   "private": true,
   "repository": {
@@ -38,6 +38,7 @@
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "core-js": "^3.8.1",
+    "cross-spawn": "^7.0.3",
     "enzyme": "^3.11.0",
     "firebase": "^8.5.0",
     "node-sass": "^4.14.1",
@@ -86,6 +87,6 @@
     ]
   },
   "engines": {
-     "node": "12.13.0"
+    "node": "12.13.0"
   }
 }
