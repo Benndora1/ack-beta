@@ -101,14 +101,14 @@ const Login = (props) => {
                       <CCol xs="6">
                         <CButton color="primary" className="px-4" onClick={handleLogin}>Login</CButton>
                       </CCol>
-                      <CCol xs="6" className="text-right">
+                      {/* <CCol xs="6" className="text-right">
                         <CButton color="link" className="px-0" onClick={handleAuth}>Login with google</CButton>
-                      </CCol>
+                      </CCol> */}
                     </CRow>
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-secondary py-5 d-md-down-none" style={{ width: '44%' }}>
+              <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
                 <CCardBody className="text-center">
                   <div>
                     <h2>ACK INSURANCE</h2>
