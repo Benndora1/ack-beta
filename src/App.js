@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
-import ProtectedRoute from './ProtectedRoute';
 import { AuthProvider } from './Auth';
 
 
@@ -11,15 +10,12 @@ const loading = (
     <div className="sk-spinner sk-spinner-pulse"></div>
   </div>
 )
-//aws configuration
-// Amplify.configure(config);
 
-// Containers
 const TheLayout = React.lazy(() => import('./containers/TheLayout'));
 
 // Pages
 const Login = React.lazy(() => import('./views/pages/login/Login'));
-const Register = React.lazy(() => import('./views/pages/register/Register'));
+// const Register = React.lazy(() => import('./views/pages/register/Register'));
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'));
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'));
 

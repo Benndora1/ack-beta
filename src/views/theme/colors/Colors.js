@@ -31,22 +31,15 @@ Amplify.configure({
                 name: "medicare-stack",
                 endpoint: "g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
             },
-            // {
-            //     name: "MyCustomCloudFrontApi",
-            //     endpoint: "https://api.my-custom-cloudfront-domain.com",
-
-            // }
+            
         ]
     }
 });
-// Amplify.configure(config);
-// API.configure(config);
-//children
+
 
 const Table = () => { 
 
   const [modal, setModal] = useState(false)
-  // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -107,7 +100,6 @@ const Table = () => {
     { key: 'status', _style: { width: '20%'}},   
     {key: 'show_details',
       label: "",
-    
       _style: { width: '1%' },
       sorter: false,
       filter: false
@@ -159,14 +151,7 @@ const Table = () => {
        console.log(error)
      })
   }
-  const handleDelete = async(id)=>{
-    const url = 'https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/';
-    await axios.delete(`url${id}`);
-    const newMemberList = members.filter((member)=>{
-      return member.member_uid!==id
-    });
-    setMembers(newMemberList);
-  }
+
 
   const handleUpdate = (id)=>{
     const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
@@ -342,15 +327,9 @@ const Table = () => {
                 </CFormGroup>
               </CForm>
             </CCardBody>
-           
           </CCard>
                 </CModalBody>
               <CModalFooter>
-                {/* <CButton color="primary">Do Something</CButton>{' '}
-                <CButton 
-                  color="secondary" 
-                  onClick={() => setModal(false)}
-                >Cancel</CButton> */}
                 <CButton type="submit" size="sm" color="primary" onClick={handleSubmit}><CIcon name="cil-scrubber" /> Submit</CButton>
               <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
               </CModalFooter>
