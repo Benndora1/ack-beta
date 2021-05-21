@@ -23,6 +23,17 @@
       "StackName": "amplify-ackapp-test-233655",
       "StackId": "arn:aws:cloudformation:us-east-2:307256247268:stack/amplify-ackapp-test-233655/7c482e50-ba74-11eb-9694-06e457cbe812",
       "AmplifyAppId": "d1zi7g4tj1jw91"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1zi7g4tj1jw91",
+          "type": "cicd"
+        }
+      },
+      "auth": {
+        "ackapp54ab4edb": {}
+      }
     }
   }
 }
