@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ackapp-dev-231915-authRole",
+      "UnauthRoleArn": "arn:aws:iam::307256247268:role/amplify-ackapp-dev-231915-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::307256247268:role/amplify-ackapp-dev-231915-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-ackapp-dev-231915-deployment",
+      "UnauthRoleName": "amplify-ackapp-dev-231915-unauthRole",
+      "StackName": "amplify-ackapp-dev-231915",
+      "StackId": "arn:aws:cloudformation:us-east-2:307256247268:stack/amplify-ackapp-dev-231915/14ed5bb0-ba72-11eb-9846-0682cbda8fea",
+      "AmplifyAppId": "d1zi7g4tj1jw91"
+    }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ackapp-test-233655-authRole",
+      "UnauthRoleArn": "arn:aws:iam::307256247268:role/amplify-ackapp-test-233655-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::307256247268:role/amplify-ackapp-test-233655-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-ackapp-test-233655-deployment",
+      "UnauthRoleName": "amplify-ackapp-test-233655-unauthRole",
+      "StackName": "amplify-ackapp-test-233655",
+      "StackId": "arn:aws:cloudformation:us-east-2:307256247268:stack/amplify-ackapp-test-233655/7c482e50-ba74-11eb-9694-06e457cbe812",
+      "AmplifyAppId": "d1zi7g4tj1jw91"
+    }
+  }
+}
