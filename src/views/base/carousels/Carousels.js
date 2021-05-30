@@ -4,7 +4,7 @@ import {
   CDataTable,
 
   } from '@coreui/react'
-import Amplify,{API} from 'aws-amplify';
+import Amplify,{ API } from 'aws-amplify';
 import config from '../../../config';
 import axios from 'axios';
 
