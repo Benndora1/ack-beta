@@ -45,7 +45,7 @@ Amplify.configure(config);
 API.configure(config);
 //children
 
-const Table = () => { 
+const Table = () => {
 
   const [modal, setModal] = useState(false)
   // const [small, setSmall] = useState(false)
@@ -60,8 +60,8 @@ const Table = () => {
   const [sorterValue, setSorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
-  
-    
+
+
   const params = {
     page,
     columnFilterValue: JSON.stringify(columnFilterValue),
@@ -80,7 +80,7 @@ const Table = () => {
     {key: 'member_charge', style:{width:'16%'}},
     {key: 'date_time', style:{width: '15%'}},
     // {key: 'member_pic'},
-    
+
 
     // { key: 'status', _style: {width: '20%'}},
     // { key: 'status', _style: {width: '20%'}},
@@ -95,7 +95,7 @@ const Table = () => {
 
 
 
-    
+
     // "id_nbr","rank","nhif","status","show_details"
   ]
   const getBadge = (status)=>{
@@ -107,15 +107,15 @@ const Table = () => {
       default: return 'primary'
     }
   }
-  
+
   // const handle = (e) =>{
   //   const newMember = {...memberDetails}
-  //   newMember[e.target.id]=e.target.value 
+  //   newMember[e.target.id]=e.target.value
   //   setMemberDetails(newMember)
-    
-   
 
-  
+
+
+
   const toggleDetails = (index) => {
     const position = details.indexOf(members)
     let newDetails = details.slice()
@@ -141,7 +141,7 @@ const Table = () => {
           setMembers(res.data);
           setPages(pages);
           setLoading(false);
-        
+
       })
       .catch((e) => {
         // wait for code sandbox server to unhibernate
@@ -150,13 +150,13 @@ const Table = () => {
         }, 2000);
       });
   }, [fetchTrigger]);
-   
+
     // API.get('memberApi','/members/member_id')
-    // .then(res=>console.log(res)); 
+    // .then(res=>console.log(res));
 
   return (
     <>
-                  
+
             <CCard className="p-5">
               <CDataTable
                 items={members}
@@ -171,11 +171,11 @@ const Table = () => {
                 hover
                 sorter
                 pagination
-            
+
                 />
-            
-            </CCard>  
-     
+
+            </CCard>
+
             </>
             )
   };
