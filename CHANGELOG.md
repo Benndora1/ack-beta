@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. Dates are d
 
 > 14 December 2020
 
-- fix(BrandButtons): minor temp fixes with stylings [`f0c0585`](https://github.com/coreui/coreui-free-react-admin-template/commit/f0c05858329430c9487bdcfcf36d0aa98f60776d)
+- fix(Brandhospitals): minor temp fixes with stylings [`f0c0585`](https://github.com/coreui/coreui-free-react-admin-template/commit/f0c05858329430c9487bdcfcf36d0aa98f60776d)
 - refactor: polyfills cleanup [`9522ade`](https://github.com/coreui/coreui-free-react-admin-template/commit/9522ade1f1eb2c5a26d5208fe6e44be803123bd2)
 - test: refactor, import temp update [`f3f91c5`](https://github.com/coreui/coreui-free-react-admin-template/commit/f3f91c5d721754a2dac26143f312415c94c7ed68)
 - chore: React 17 and dependencies update [`f6a710f`](https://github.com/coreui/coreui-free-react-admin-template/commit/f6a710ffd6996c9b6b026b8eebed6ff390757fe1)
@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file. Dates are d
 
 > 12 August 2020
 
-- docs(readme): CoreUI react theme setup with laravel tutorial link add into readme [`#226`](https://github.com/coreui/coreui-free-react-admin-template/pull/226)
+- docs(readme): CoreUI react app setup with laravel tutorial link add into readme [`#226`](https://github.com/coreui/coreui-free-react-admin-template/pull/226)
 - fix: fix template testing [`68ce41d`](https://github.com/coreui/coreui-free-react-admin-template/commit/68ce41db6831d6995121766a5771dc9d667cc61a)
 - chore: 3.1.0 release - update dependencies [`92f55b8`](https://github.com/coreui/coreui-free-react-admin-template/commit/92f55b8cdfd748a9e72649d5da62b93015a1c8e6)
 - refactor: add reusable folder with DocsLink component [`eef84db`](https://github.com/coreui/coreui-free-react-admin-template/commit/eef84dbbd770c7253080a6f69443c40e4fecefd2)

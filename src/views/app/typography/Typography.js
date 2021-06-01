@@ -12,7 +12,7 @@ import {
 import usersData from '../../users/UsersData'
 
 
-//hospitals
+//typography
 
 const getBadge = status => {
   switch (status) {

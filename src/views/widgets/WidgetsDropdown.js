@@ -51,7 +51,7 @@ const WidgetsDropdown = () => {
         <CWidgetDropdown
           color="gradient-info"
           header="3"
-          text="All Hospitals"
+          text="All typography"
           footerSlot={
             <ChartLineSimple
               pointed
@@ -60,7 +60,7 @@ const WidgetsDropdown = () => {
               dataPoints={[1, 18, 9, 17, 34, 22, 11]}
               pointHoverBackgroundColor="info"
               options={{ elements: { line: { tension: 0.00001 }}}}
-              label="Hospitals"
+              label="typography"
               labels="months"
             />
           }
