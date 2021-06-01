@@ -1,27 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {
-  CButton,
   CCard,
-  CCardBody,
-  CCol,
   CDataTable,
-  CBadge,
-  CCollapse,
-  CSelect,
-  CForm,
-  CLabel,
-  CInput,
-  CFormGroup,
-  CModal,
-  CModalBody,
-  CModalFooter,
-  CModalHeader,
-  CModalTitle,
-  } from '@coreui/react'
 
-import CIcon from '@coreui/icons-react'
-// import { DocsLink } from 'src/reusable'
-import Amplify,{API} from 'aws-amplify';
+  } from '@coreui/react'
+import Amplify,{ API } from 'aws-amplify';
 import config from '../../../config';
 import axios from 'axios';
 
@@ -33,31 +16,24 @@ Amplify.configure({
                 name: "medicare-stack",
                 endpoint: "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values"
             },
-            // {
-            //     name: "MyCustomCloudFrontApi",
-            //     endpoint: "https://api.my-custom-cloudfront-domain.com",
 
-            // }
         ]
     }
 });
 Amplify.configure(config);
 API.configure(config);
-//children
+
 
 const Table = () => {
 
-  const [modal, setModal] = useState(false)
-  // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
-  const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [pages, setPages] = useState(5);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-  const [columnFilterValue, setColumnFilterValue] = useState();
-  const [tableFilterValue, setTableFilterValue] = useState("");
-  const [sorterValue, setSorterValue] = useState();
+  const [itemsPerPage] = useState(5);
+  const [columnFilterValue] = useState();
+  const [tableFilterValue] = useState("");
+  const [sorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
 
@@ -79,59 +55,8 @@ const Table = () => {
     // { key: 'total_bal', _style: {width: '15%'}},
     {key: 'member_charge', style:{width:'16%'}},
     {key: 'date_time', style:{width: '15%'}},
-    // {key: 'member_pic'},
 
-
-    // { key: 'status', _style: {width: '20%'}},
-    // { key: 'status', _style: {width: '20%'}},
-    // {
-    //   key: 'show_details',
-    //   // label: "",
-    //   _style: { width: '1%' },
-    //   sorter: false,
-    //   filter: false
-    // }
-    // { key: 'lname', _style: {width: '40%'}},
-
-
-
-
-    // "id_nbr","rank","nhif","status","show_details"
   ]
-  const getBadge = (status)=>{
-    switch (status) {
-      case 'Active': return 'success'
-      case 'Inactive': return 'secondary'
-      // case 'Pending': return 'warning'
-      // case 'Banned': return 'danger'
-      default: return 'primary'
-    }
-  }
-
-  // const handle = (e) =>{
-  //   const newMember = {...memberDetails}
-  //   newMember[e.target.id]=e.target.value
-  //   setMemberDetails(newMember)
-
-
-
-
-  const toggleDetails = (index) => {
-    const position = details.indexOf(members)
-    let newDetails = details.slice()
-    if (position !== -1) {
-      newDetails.splice(position, 1)
-    } else {
-      newDetails = [...details, members]
-    }
-    setDetails(newDetails)
-  }
-  // const fetchMembers = async ()=>{
-  //   try{
-  //     const mbrData = await API.get('memberApi','/members/member_id');
-  //     console.log(mbrData);
-  //   }catch(error){}
-  // }
 
   useEffect(()=>{
     setLoading(true)
@@ -151,8 +76,6 @@ const Table = () => {
       });
   }, [fetchTrigger]);
 
-    // API.get('memberApi','/members/member_id')
-    // .then(res=>console.log(res));
 
   return (
     <>

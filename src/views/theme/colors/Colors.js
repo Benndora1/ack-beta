@@ -7,7 +7,6 @@ import {
   CDataTable,
   CBadge,
   CCollapse,
-  CSelect,
   CForm,
   CLabel,
   CInput,
@@ -32,31 +31,24 @@ Amplify.configure({
                 name: "medicare-stack",
                 endpoint: "g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
             },
-            // {
-            //     name: "MyCustomCloudFrontApi",
-            //     endpoint: "https://api.my-custom-cloudfront-domain.com",
 
-            // }
         ]
     }
 });
-// Amplify.configure(config);
-// API.configure(config);
-//children
+
 
 const Table = () => {
 
   const [modal, setModal] = useState(false)
-  // const [small, setSmall] = useState(false)
   const [members,setMembers] = useState([]);
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
+  const [page] = useState(1);
   const [pages, setPages] = useState(5);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-  const [columnFilterValue, setColumnFilterValue] = useState();
-  const [tableFilterValue, setTableFilterValue] = useState("");
-  const [sorterValue, setSorterValue] = useState();
+  const [itemsPerPage] = useState(5);
+  const [columnFilterValue] = useState();
+  const [tableFilterValue] = useState("");
+  const [sorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
   const [memberDetails,setMemberDetails] = useState({
@@ -108,7 +100,6 @@ const Table = () => {
     { key: 'status', _style: { width: '20%'}},
     {key: 'show_details',
       label: "",
-
       _style: { width: '1%' },
       sorter: false,
       filter: false
@@ -140,8 +131,7 @@ const Table = () => {
 
 
   const handleSubmit = ()=>{
-    //  const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values";
-     axios.post("https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values",updateMember)
+     axios.post("https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values",memberDetails)
      .then(res=>{
        console.log(res.data)
      })
@@ -149,17 +139,9 @@ const Table = () => {
        console.log(error)
      })
   }
-  const handleDelete = async(id)=>{
-    const url = 'https://g2lvjeru1b.execute-api.us-east-2.amazonaws.com/Prod/api/values/';
-    await axios.delete(`url${id}`);
-    const newMemberList = members.filter((member)=>{
-      return member.member_uid!==id
-    });
-    setMembers(newMemberList);
-  }
+
 
   const handleUpdate = (id)=>{
-    // const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values/"
     axios.put(`https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values/${id}`,{
       "member_name":updateMember.member_name,
       "member_nbr": updateMember.member_nbr,
@@ -296,14 +278,6 @@ const Table = () => {
                     </CCol>
                     <CCol xs="12" md="9">
                       <CInput id="member_nbr" onChange={(e)=>handle(e)} value={memberDetails.member_nbr} name="number-input" placeholder="Card-Number"></CInput>
-                    </CCol>
-                  </CFormGroup>
-                  <CFormGroup row>
-                    <CCol md="3">
-                      <CLabel htmlFor="phone-number">Card Status</CLabel>
-                    </CCol>
-                    <CCol xs="12" md="9">
-                      <CInput id="card_status" onChange={(e)=>handle(e)} value={memberDetails.card_status} name="number-input" placeholder="Active"></CInput>
                     </CCol>
                   </CFormGroup>
                   <CFormGroup row>
@@ -495,28 +469,20 @@ const Table = () => {
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={member.card_status} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
-                                                <CFormGroup row>
+                                                {/* <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Dependancy</CLabel>
                                                   </CCol>
                                                   <CCol xs="12" md="9">
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={member.dependancy} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
-                                                </CFormGroup>
+                                                </CFormGroup> */}
                                                 <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Charge Member</CLabel>
                                                   </CCol>
                                                   <CCol xs="12" md="9">
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={member.charge_id} name="number-input" placeholder="Active"></CInput>
-                                                  </CCol>
-                                                </CFormGroup>
-                                                <CFormGroup row>
-                                                  <CCol md="3">
-                                                    <CLabel htmlFor="phone-number">Card Status</CLabel>
-                                                  </CCol>
-                                                  <CCol xs="12" md="9">
-                                                    <CInput id="card_status" onChange={(e)=>update(e)} value={member.card_status} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
                                                 <CFormGroup row>

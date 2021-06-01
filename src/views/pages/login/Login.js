@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { Link, Redirect, useHistory, withRouter} from 'react-router-dom'
-import ack from '../../../img/ack.jpg'
+import {Redirect, useHistory, withRouter} from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -120,7 +119,7 @@ const Login = (props) => {
                 </CCardBody>
               </CCard>
             </CCardGroup>
-          </CCol> 
+          </CCol>
         </CRow>
       </CContainer>
     </div>

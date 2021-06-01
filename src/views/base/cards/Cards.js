@@ -1,18 +1,13 @@
 import React, { useState } from 'react'
 import {
   CButton,
-  CCard,
-  CCardBody,
-  CCardHeader,
-  CCol,
   CModal,
   CModalBody,
   CModalFooter,
   CModalHeader,
   CModalTitle,
-  CRow
+  
 } from '@coreui/react'
-import { DocsLink } from 'src/reusable'
 import CIcon from '@coreui/icons-react'
 
 //insuarance
@@ -21,7 +16,6 @@ import CIcon from '@coreui/icons-react'
 
 const Table = () => { 
   const [modal, setModal] = useState(true)
-  const [small, setSmall] = useState(false)
   
 
 

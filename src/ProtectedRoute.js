@@ -10,9 +10,9 @@ const ProtectedRoute=({children, ...rest})=>{
         <Route
             {...rest}
             render={() =>
-              !!currentUser ? children
+            !!currentUser ? children
                 // <RouteComponent {...routeProps}/>
-             :<Redirect to='/login'/>
+                :<Redirect to='/login'/>
             
             } 
         />

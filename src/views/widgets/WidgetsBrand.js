@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CWidgetBrand, CRow, CCol } from '@coreui/react';
-import CIcon from '@coreui/icons-react';
-import ChartLineSimple from '../charts/ChartLineSimple';
+import { CRow} from '@coreui/react';
+
 
 const WidgetsBrand = ({withCharts})=>{
 
@@ -45,32 +44,11 @@ const WidgetsBrand = ({withCharts})=>{
           name="cib-twitter"
           height="52"
           className="my-4"
-        />
-        <ChartLineSimple
-          className="position-absolute w-100 h-100"
-          backgroundColor="rgba(255,255,255,.1)"
-          dataPoints={[1, 13, 9, 17, 34, 41, 38]}
-          label="Followers"
-          labels="months"
-        />
+      
       </CWidgetBrand>
     </CCol>
 
-    <CCol sm="6" lg="3">
-      <CWidgetBrand
-        color="linkedin"
-        rightHeader="500+"
-        rightFooter="contracts"
-        leftHeader="292"
-        leftFooter="feeds"
-      >
-        <CIcon
-          name="cib-linkedin"
-          height="52"
-          className="my-4"
-        />
-        <ChartLineSimple
-          className="position-absolute w-100 h-100"
+    <C       className="position-absolute w-100 h-100"
           backgroundColor="rgba(255,255,255,.1)"
           dataPoints={[78, 81, 80, 45, 34, 12, 40]}
           label="Contracts"

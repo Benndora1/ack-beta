@@ -247,7 +247,7 @@ const Dashboard = () => {
                 <thead className="thead-light">
                   <tr>
                     <th className="text-center"><CIcon name="cil-people" /></th>
-                    <th>Member</th>
+                    <th>Member</th> 
                     {/* <th className="text-center">Country</th> */}
                     <th>Usage</th>
                     <th className="text-center">Total balance</th>
