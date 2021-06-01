@@ -6,7 +6,7 @@
   "contributors": [
     "CoreUI Team (https://github.com/orgs/coreui/people)"
   ],
-  "homepage": "http://.",
+  "homepage": ".",
   "copyright": "Copyright 2017-2020 creativeLabs �ukasz Holeczek",
   "license": "MIT",
   "private": true,
@@ -76,7 +76,7 @@
     ]
   },
   "engines": {
-    "node": "12.21.0"
+     "node": "^12.13.0"
   },
-  "main": "index.js"
+  "proxy":"https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com"
 }

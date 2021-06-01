@@ -16,7 +16,7 @@ Amplify.configure({
                 name: "medicare-stack",
                 endpoint: "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values"
             },
-           
+
         ]
     }
 });
@@ -24,7 +24,7 @@ Amplify.configure(config);
 API.configure(config);
 
 
-const Table = () => { 
+const Table = () => {
 
   const [members,setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,8 +36,8 @@ const Table = () => {
   const [sorterValue] = useState();
 
   const [fetchTrigger, setFetchTrigger] = useState(0);
-  
-    
+
+
   const params = {
     page,
     columnFilterValue: JSON.stringify(columnFilterValue),
@@ -55,9 +55,9 @@ const Table = () => {
     // { key: 'total_bal', _style: {width: '15%'}},
     {key: 'member_charge', style:{width:'16%'}},
     {key: 'date_time', style:{width: '15%'}},
-    
+
   ]
- 
+
   useEffect(()=>{
     setLoading(true)
     axios.get('https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values')
@@ -66,7 +66,7 @@ const Table = () => {
           setMembers(res.data);
           setPages(pages);
           setLoading(false);
-        
+
       })
       .catch((e) => {
         // wait for code sandbox server to unhibernate
@@ -75,11 +75,11 @@ const Table = () => {
         }, 2000);
       });
   }, [fetchTrigger]);
-   
- 
+
+
   return (
     <>
-                  
+
             <CCard className="p-5">
               <CDataTable
                 items={members}
@@ -94,11 +94,11 @@ const Table = () => {
                 hover
                 sorter
                 pagination
-            
+
                 />
-            
-            </CCard>  
-     
+
+            </CCard>
+
             </>
             )
   };

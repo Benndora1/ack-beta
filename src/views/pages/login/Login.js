@@ -23,11 +23,11 @@ const Login = (props) => {
   const[email,setEmail]=useState('');
   const[password,setPassword]=useState('');
 
- 
-  
+
+
   const clearData = ()=>{
      setEmail('');
-     setPassword('');   
+     setPassword('');
   };
   const handleAuth =async(e) =>{
     const provider = new app.auth.GoogleAuthProvider();
@@ -51,11 +51,20 @@ const Login = (props) => {
     }catch(err){
       console.log(err)
     }
-    }
-  
+
+      // .then(data =>{
+      //   console.log('Logged in!', data)
+      //   history.push("/")
+      // })
+      // .catch(err =>{
+      //   console.error('Login Failed!', err)
+      // })
+
+  }
+
 
   const {currentUser} = useContext(AuthContext);
-  
+
   if (currentUser){
     <Redirect to='/'/>
   }

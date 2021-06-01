@@ -206,8 +206,7 @@ const Table = () => {
   
 
   return (
-    <>
-   <CButton color="primary"
+    <> <CButton color="primary"
               onClick={() => setModal(!modal)} 
               className="mr-1"
             >Add Member</CButton>
@@ -493,6 +492,7 @@ const Table = () => {
                                                     <CInput id="card_status" onChange={(e)=>update(e)} value={members.charge_id} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
+
                                                 <CFormGroup row>
                                                 <CCol md="3">
                                                   <CLabel htmlFor="select">Rank</CLabel>
