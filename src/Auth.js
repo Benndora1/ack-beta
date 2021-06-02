@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react"; 
+import React,{useState,useEffect} from "react";
 import {auth} from './config';
 
 export const AuthContext = React.createContext()
@@ -6,16 +6,22 @@ export const AuthContext = React.createContext()
 export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [pending, setPending] = useState(true);
-      
+
+    const logout = ()=>{
+      return auth.signOut().then(()=>{
+        setCurrentUser(null);
+      });
+    };
+
     useEffect(() => {
-      auth.onAuthStateChanged((user) => {
-        console.log(user)
+      const unsubscribe=auth.onAuthStateChanged(user => {
         setCurrentUser(user)
+        console.log(user)
         setPending(false)
       });
         // cleanup
-        // return unsubscribe;
-    
+        return () => unsubscribe()
+
       }, []);
 
 
@@ -27,9 +33,10 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider
           value={{
             currentUser,
+            logout
           }}
         >
-          {children}
+          {!pending && children}
         </AuthContext.Provider>
       );
     };

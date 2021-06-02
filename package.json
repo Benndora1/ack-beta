@@ -79,4 +79,5 @@
      "node": "^12.13.0"
   },
   "proxy":"https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com"
+
 }

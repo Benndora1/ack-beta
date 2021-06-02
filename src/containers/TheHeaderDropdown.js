@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {
   CDropdown,
   CDropdownItem,
@@ -8,22 +8,22 @@ import {
 } from '@coreui/react'
 import {useHistory} from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
-import {auth} from '../config'
+import app,{auth} from '../config'
+import {AuthContext} from '../Auth'
 
 
 const TheHeaderDropdown = () => {
   let history = useHistory();
+  const {currentUser,logout} = useContext(AuthContext);
 
-  const handleLogout = async(e) =>{
-    // e.preventDefault();
+  const handleLogout = (e) =>{
     try{
-      await auth.signOut();
-      history.push('/login');
-      // clearData();
+      auth.signOut()
+      history.push('/login')
     }catch(err){
       console.log(err)
     }
-  }  
+  }
 
   return (
     <CDropdown
@@ -42,7 +42,7 @@ const TheHeaderDropdown = () => {
       </CDropdownToggle>
       <CDropdownMenu className="pt-0" placement="bottom-end">
         <CDropdownItem>
-          <CIcon name="cil-lock-locked" className="mfe-2" onClick={handleLogout} />
+          <CIcon name="cil-lock-locked" className="mfe-2" onClick={logout} />
           Lock Account
         </CDropdownItem>
       </CDropdownMenu>
