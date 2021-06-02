@@ -6,9 +6,9 @@ import {
   CCol,
   CDataTable,
   CDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  // DropdownItem,
+  CDropdownToggle,
+  CDropdownMenu,
+  // CDropdownItem,
   CBadge,
   CCollapse,
   CForm,
@@ -39,6 +39,8 @@ Amplify.configure({
         ]
     }
 });
+
+const cors = require("cors")({origin: true});
 
 
 const Table = () => { 
