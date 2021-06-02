@@ -5,6 +5,10 @@ import {
   CCardBody,
   CCol,
   CDataTable,
+  CDropdown,
+  CDropdownToggle,
+  CDropdownMenu,
+  // CDropdownItem,
   CBadge,
   CCollapse,
   CForm,
@@ -36,6 +40,8 @@ Amplify.configure({
         ]
     }
 });
+
+const cors = require("cors")({origin: true});
 
 
 const Table = () => {
@@ -118,7 +124,7 @@ const Table = () => {
     const newMember = {...memberDetails}
     newMember[e.target.name]=e.target.value
     setMemberDetails(newMember)
-    console.log(memberDetails)
+    console.log(newMember)
 
   }
 
@@ -156,11 +162,24 @@ const Table = () => {
 
 
   const handleSubmit = ()=>{
-     axios.post("https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values",memberDetails)
-     .then(res=>{
+     const url = "https://itp8vfbr9a.execute-api.us-east-2.amazonaws.com/Prod/api/values";
+     axios.post(url,{
+      "member_name":memberDetails.member_name,
+      "member_nbr": memberDetails.member_nbr,
+      "id_no":memberDetails.id_no,
+      "date_of_b":memberDetails.date_of_b,
+      "tel_no":memberDetails.tel_no,
+      "nhif_no":memberDetails.nhif_no,
+      "member_role":memberDetails.member_role,
+      "total_bal":memberDetails.total_bal,
+      "inpatient_bal":memberDetails.inpatient_bal,
+      "outpatient_bal":memberDetails.outpatient_bal,
+      "card_status":memberDetails.card_status,
+      "charge_id":memberDetails.charge_id,
+      "dependancy":memberDetails.dependancy
+     }).then(res=>{
        console.log(res.data)
-     })
-     .catch(error=>{
+     }).catch(error=>{
        console.log(error)
      })
   }
@@ -196,30 +215,27 @@ const Table = () => {
       .catch((e) => {
         setTimeout(() => {
           setFetchTrigger(fetchTrigger + 1);
-        }, 1000);
+        }, 2000);
       });
   }, [fetchTrigger]);
 
 
   return (
-    <>
-   <CButton color="primary"
-      onClick={() => setModal(!modal)}
-      className="mr-1"
-       >Add Member</CButton>
+    <> <CButton color="primary"
+              onClick={() => setModal(!modal)}
+              className="mr-1"
+            >Add Member</CButton>
             <CModal
               show={modal}
               onClose={setModal}
             >
               <CModalHeader closeButton>
-                <CModalTitle>NewMember Details</CModalTitle>
+                <CModalTitle>Member Details</CModalTitle>
               </CModalHeader>
               <CModalBody>
               <CCard>
             <CCardBody>
               <CForm action="" onSubmit={e=>e.preventDefault() && false} method="post" encType="multipart/form-data" className="form-horizontal">
-
-
                 <CFormGroup row>
                   <CCol md="3">
                     <CLabel htmlFor="text-input">Member Name</CLabel>
@@ -327,16 +343,10 @@ const Table = () => {
                 </CFormGroup>
               </CForm>
             </CCardBody>
-
           </CCard>
                 </CModalBody>
               <CModalFooter>
-                {/* <CButton color="primary">Do Something</CButton>{' '}
-                <CButton
-                  color="secondary"
-                  onClick={() => setModal(false)}
-                >Cancel</CButton> */}
-                <CButton type="submit" size="sm" color="primary" onClick={handleSubmit}><CIcon name="cil-scrubber" /> Add User </CButton>
+                <CButton type="submit" size="sm" color="primary" onClick={handleSubmit}><CIcon name="cil-scrubber" /> Submit</CButton>
               <CButton type="reset" size="sm" color="danger" onClick={() => setModal(false)}><CIcon name="cil-ban" /> Close</CButton>
               </CModalFooter>
             </CModal>
@@ -356,10 +366,10 @@ const Table = () => {
                 pagination
                 scopedSlots = {{
                   'status':
-                    (member)=>(
+                    (members)=>(
                       <td>
-                        <CBadge color={getBadge(member.status)}>
-                          {member.card_status}
+                        <CBadge color={getBadge(members.status)}>
+                          {members.card_status}
                         </CBadge>
                       </td>
                     ),
@@ -389,7 +399,7 @@ const Table = () => {
                                   className="mr-2"
                                           >Edit Member</CButton>
                                           <CModal
-                                            id ={member.member_uid}
+                                            id ={members.member_uid}
                                             show={modal}
                                             onClose={setModal}
                                           >
@@ -485,14 +495,14 @@ const Table = () => {
                                                     </select>
                                                   </CCol>
                                                 </CFormGroup>
-                                                {/* <CFormGroup row>
+                                                <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Dependancy</CLabel>
                                                   </CCol>
                                                   <CCol xs="12" md="9">
                                                     <CInput name="card_status" onChange={(e)=>update(e)} value={member.dependancy} name="number-input" placeholder="Active"></CInput>
                                                   </CCol>
-                                                </CFormGroup> */}
+                                                </CFormGroup>
                                                 <CFormGroup row>
                                                   <CCol md="3">
                                                     <CLabel htmlFor="phone-number">Charge Member</CLabel>
@@ -501,6 +511,7 @@ const Table = () => {
                                                     <CInput name="card_status" onChange={(e)=>update(e)} value={updateMember.charge_id}  placeholder="Active"></CInput>
                                                   </CCol>
                                                 </CFormGroup>
+
                                                 <CFormGroup row>
                                                 <CCol md="3">
                                                   <CLabel htmlFor="select">Rank</CLabel>

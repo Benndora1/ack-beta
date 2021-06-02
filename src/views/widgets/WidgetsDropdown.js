@@ -50,8 +50,8 @@ const WidgetsDropdown = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="3"
-          text="All Hospitals"
+          header="5"
+          text="All Hospital"
           footerSlot={
             <ChartLineSimple
               pointed

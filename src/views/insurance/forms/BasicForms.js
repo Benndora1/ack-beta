@@ -1182,10 +1182,10 @@ const BasicForms = () => {
                       </div>
                     </CFormGroup>
                     <CFormGroup>
-                      <CLabel htmlFor="appendedInputButtons">Two-button append</CLabel>
+                      <CLabel htmlFor="appendedInputhospitals">Two-button append</CLabel>
                       <div className="controls">
                         <CInputGroup>
-                          <CInput id="appendedInputButtons" size="16" type="text" />
+                          <CInput id="appendedInputhospitals" size="16" type="text" />
                           <CInputGroupAppend>
                             <CButton color="secondary">Search</CButton>
                             <CButton color="secondary">Options</CButton>

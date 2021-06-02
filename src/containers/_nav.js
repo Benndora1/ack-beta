@@ -19,37 +19,37 @@ const _nav =  [
   {
     _tag: 'CSidebarNavItem',
     name: 'Members',
-    to: '/theme/colors',
+    to: '/app/members',
     icon: 'cil-people',
   },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Hospitals',
-    route: '/buttons',
-    icon: 'cil-pencil',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Kijabe',
-        to: '/buttons/buttons',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Agha Khan',
-        to: '/buttons/brand-buttons',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Coptic',
-        to: '/buttons/button-groups',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Melchizedek',
-        to: '/buttons/button-dropdowns',
-      }
-    ],
-  },
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Hospitals',
+  //   route: '/hospital',
+  //   icon: 'cil-hospital',
+  //   _children: [
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Kijabe',
+  //       to: '/buttons/buttons',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Agha Khan',
+  //       to: '/buttons/brand-buttons',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Coptic',
+  //       to: '/buttons/button-groups',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Melchizedek',
+  //       to: '/buttons/button-dropdowns',
+  //     }
+  //   ],
+  // },
   // {
   //   _tag: 'CSidebarNavItem',
   //   name: 'Hospitals',
@@ -62,92 +62,87 @@ const _nav =  [
   // },
   // {
     // _tag: 'CSidebarNavDropdown',
-    // name: 'Base',
-    // route: '/base',
+    // name: 'insurance',
+    // route: '/insurance',
     // icon: 'cil-puzzle',
     // _children: [
       {
         _tag: 'CSidebarNavItem',
         name: 'Medical Schemes',
-        to: '/base/breadcrumbs',
+        to: '/insurance/medicalscheme',
         icon: 'cil-user',
       },
-      // {
-      //   _tag: 'CSidebarNavItem',
-      //   name: 'Insuarance',
-      //   to: '/base/cards',
-      //   icon: 'cil-pencil',
-      // },
+     
       {
         _tag: 'CSidebarNavItem',
         name: 'Reports',
-        to: '/base/carousels',
+        to: '/insurance/reports',
         icon: 'cil-graph',
       },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Collapse',
-      //   to: '/base/collapses',
+      //   to: '/insurance/collapses',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Forms',
-      //   to: '/base/forms',
+      //   to: '/insurance/forms',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Jumbotron',
-      //   to: '/base/jumbotrons',
+      //   to: '/insurance/jumbotrons',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'List group',
-      //   to: '/base/list-groups',
+      //   to: '/insurance/list-groups',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Navs',
-      //   to: '/base/navs',
+      //   to: '/insurance/navs',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Navbars',
-      //   to: '/base/navbars',
+      //   to: '/insurance/navbars',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Pagination',
-      //   to: '/base/paginations',
+      //   to: '/insurance/paginations',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Popovers',
-      //   to: '/base/popovers',
+      //   to: '/insurance/popovers',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Progress',
-      //   to: '/base/progress-bar',
+      //   to: '/insurance/progress-bar',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Switches',
-      //   to: '/base/switches',
+      //   to: '/insurance/switches',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Tables',
-      //   to: '/base/tables',
+      //   to: '/insurance/tables',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Tabs',
-      //   to: '/base/tabs',
+      //   to: '/insurance/tabs',
       // },
       // {
       //   _tag: 'CSidebarNavItem',
       //   name: 'Tooltips',
-      //   to: '/base/tooltips',
+      //   to: '/insurance/tooltips',
       // },
     // ],
   // },

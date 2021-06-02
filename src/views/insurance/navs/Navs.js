@@ -26,7 +26,7 @@ const Navs = () => {
               <DocsLink name="CNav"/>
             </CCardHeader>
             <CCardBody>
-              <small>List Based</small>
+              <small>List insuranced</small>
               <CNav>
                 <CNavItem>
                   <CNavLink active>Active</CNavLink>
@@ -39,7 +39,7 @@ const Navs = () => {
                 </CNavItem>
               </CNav>
               <hr />
-              <small>Link Based</small>
+              <small>Link insuranced</small>
               <CNav>
                 <CNavLink>Active</CNavLink>
                 <CNavLink>Link</CNavLink>
@@ -47,7 +47,7 @@ const Navs = () => {
                 <CNavLink disabled>Disabled</CNavLink>
               </CNav>
               <hr />
-              <small>Link Base</small>
+              <small>Link insurance</small>
               <CNav className="justify-content-center">
                 <CNavLink>Active</CNavLink>
                 <CNavLink>Link</CNavLink>
@@ -55,7 +55,7 @@ const Navs = () => {
                 <CNavLink disabled>Disabled</CNavLink>
               </CNav>
               <hr />
-              <small>Link Based</small>
+              <small>Link insuranced</small>
               <CNav className="justify-content-end">
                 <CNavLink>Active</CNavLink>
                 <CNavLink>Link</CNavLink>
